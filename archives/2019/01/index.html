@@ -448,13 +448,15 @@ docker images
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/01/02/多并发编程-多线程/">
+        <a class="abstract-title" href="/2019/01/02/哈希算法 - 加密 - 编码/">
             
-                <span>多并发编程-多线程</span>
+                <span>哈希算法-加密-编码</span>
         </a>
         <div class="abstract-content">
-            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
-1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
+            哈希算法 - 加密 - 编码哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信息哈希算法是一个单向运算的函数（单向哈希函数）通过哈希算法可以将对象计算出哈希摘要但是哈希摘要无法还原成原来的对
+Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
+策略模式加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文对称加密 - 加密和解密使用同一个密钥 - AES非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSApip install pycrypto
+编码和解码 - 将内存中的二进制数据处理成其他的格式 - B...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -472,22 +474,13 @@ docker images
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/01/02/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">
+        <a class="abstract-title" href="/2019/01/02/多并发编程-多线程/">
             
-                <span>面向对象-OOP</span>
+                <span>多并发编程-多线程</span>
         </a>
         <div class="abstract-content">
-            面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：
-
-抽象：类是抽象的，对象是具体的，定义类的过程就是一个抽象过程，  需要最
-数据抽象(发现静态特征（属性）)和行为抽象（发现动态特征（方法））
-
-封装: 把数据和操作数据的方法绑定到一起形成对象，这是一个隐藏实现细节暴露 简单的调用接口的过程。
-
-继承：从已有的类创建新类的过程，提供继承信息的称为父类（基类/超类）得到继 承信息的称为子类（派生类）
-
-多态：子类在继承父类的过程中可以重写（override）父类已有的方法 不同的子类可以给出不同放任实现版本，那么在调用该方法时会表现出多态
-...
+            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
+1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -535,15 +528,22 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/01/02/哈希算法 - 加密 - 编码/">
+        <a class="abstract-title" href="/2019/01/02/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">
             
-                <span>哈希算法-加密-编码</span>
+                <span>面向对象-OOP</span>
         </a>
         <div class="abstract-content">
-            哈希算法 - 加密 - 编码哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信息哈希算法是一个单向运算的函数（单向哈希函数）通过哈希算法可以将对象计算出哈希摘要但是哈希摘要无法还原成原来的对
-Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
-策略模式加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文对称加密 - 加密和解密使用同一个密钥 - AES非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSApip install pycrypto
-编码和解码 - 将内存中的二进制数据处理成其他的格式 - B...
+            面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：
+
+抽象：类是抽象的，对象是具体的，定义类的过程就是一个抽象过程，  需要最
+数据抽象(发现静态特征（属性）)和行为抽象（发现动态特征（方法））
+
+封装: 把数据和操作数据的方法绑定到一起形成对象，这是一个隐藏实现细节暴露 简单的调用接口的过程。
+
+继承：从已有的类创建新类的过程，提供继承信息的称为父类（基类/超类）得到继 承信息的称为子类（派生类）
+
+多态：子类在继承父类的过程中可以重写（override）父类已有的方法 不同的子类可以给出不同放任实现版本，那么在调用该方法时会表现出多态
+...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -749,7 +749,7 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
         </li>
     
     
@@ -759,12 +759,12 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/多并发编程-多线程/">多并发编程-多线程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/多并发编程-多线程/">多并发编程-多线程</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
         </li>
     
     
