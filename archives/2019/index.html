@@ -346,6 +346,29 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/01/03/数据库优化/">
+            
+                <span>数据库优化</span>
+        </a>
+        <div class="abstract-content">
+            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/03</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/01/02/笔记/">
             
                 <span>web安全，celery</span>
@@ -474,13 +497,19 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/01/02/多并发编程-多线程/">
+        <a class="abstract-title" href="/2019/01/02/类和类之间的关系/">
             
-                <span>多并发编程-多线程</span>
+                <span>类和类之间的关系</span>
         </a>
         <div class="abstract-content">
-            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
-1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
+            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
+Python解释器搜索一个变量会按照LEGB的顺序进行搜索
+ LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
+       局部     嵌套       全局      内置
+ 在函数中定义的变量正常情况下属于局部作用域
+ 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
+UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
+重要的三种图：...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -498,19 +527,13 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/01/02/类和类之间的关系/">
+        <a class="abstract-title" href="/2019/01/02/多并发编程-多线程/">
             
-                <span>类和类之间的关系</span>
+                <span>多并发编程-多线程</span>
         </a>
         <div class="abstract-content">
-            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
-Python解释器搜索一个变量会按照LEGB的顺序进行搜索
- LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
-       局部     嵌套       全局      内置
- 在函数中定义的变量正常情况下属于局部作用域
- 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
-UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
-重要的三种图：...
+            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
+1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -726,9 +749,28 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 7
+        Total : 8
         </div>
         <!-- search  -->
         
@@ -754,12 +796,12 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/类和类之间的关系/">类和类之间的关系</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/多并发编程-多线程/">多并发编程-多线程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/多并发编程-多线程/">多并发编程-多线程</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/类和类之间的关系/">类和类之间的关系</a>
         </li>
     
     
@@ -771,6 +813,29 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
         <li class="archive-post-item">
             <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
         </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/01/03/数据库优化/">数据库优化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
