@@ -346,6 +346,30 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/bloomfilter/">
+            
+                <span>boolmfilter</span>
+        </a>
+        <div class="abstract-content">
+            Bloom Filter的算法​       在Bloom Filter 中使用位数组来辅助实现检测判断。在初始状态下，我们声明一个包含m位的位数组，它的所有位都是0，如图14-7所示。​                    
+​        现在我们有了一个待检测集合，其表示为S={x1, h ,…, Xn ｝ 。接下来需要做的就是检测一个x是否已经存在于集合S中。在Bloom Filter 算法中，首先使用k个相互独立、随机的散列函数来将集合S中的每个元素X1,X2,…Xn，映射到长度为m的位数组上，散列函数得到的结果记作位置索引，然后将位数组该位置索引的位置l 。例如，我们取k...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/26/redis订阅python代码/">
             
                 <span>redis订阅python代码</span>
@@ -402,19 +426,14 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/类和类之间的关系/">
+        <a class="abstract-title" href="/2019/02/26/笔记/">
             
-                <span>类和类之间的关系</span>
+                <span>web安全，celery</span>
         </a>
         <div class="abstract-content">
-            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
-Python解释器搜索一个变量会按照LEGB的顺序进行搜索
- LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
-       局部     嵌套       全局      内置
- 在函数中定义的变量正常情况下属于局部作用域
- 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
-UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
-重要的三种图：...
+            生成用户令牌（token） -哈希码 - MD5/SHA1 -UUID - 全局唯一标识符 -JWT - Json web Token - djangorestframework-jwt
+1、防表单重复，每一次请求刷新令牌2、跨站身份网站伪造 - CSRF、XSRF
+##XSS - 跨站脚本攻击 - 消毒用户评论时输入的是 js脚本代码，发送后就会执行，所以要将特殊字符转换 1、清理用户输入，过滤js代码，过滤特殊字符​          [1] &lt;&gt;（尖括号）     [5] ;（分号）​          [2] “（引号）           [6] ()（括号）​  ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -432,14 +451,19 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/笔记/">
+        <a class="abstract-title" href="/2019/02/26/类和类之间的关系/">
             
-                <span>web安全，celery</span>
+                <span>类和类之间的关系</span>
         </a>
         <div class="abstract-content">
-            生成用户令牌（token） -哈希码 - MD5/SHA1 -UUID - 全局唯一标识符 -JWT - Json web Token - djangorestframework-jwt
-1、防表单重复，每一次请求刷新令牌2、跨站身份网站伪造 - CSRF、XSRF
-##XSS - 跨站脚本攻击 - 消毒用户评论时输入的是 js脚本代码，发送后就会执行，所以要将特殊字符转换 1、清理用户输入，过滤js代码，过滤特殊字符​          [1] &lt;&gt;（尖括号）     [5] ;（分号）​          [2] “（引号）           [6] ()（括号）​  ...
+            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
+Python解释器搜索一个变量会按照LEGB的顺序进行搜索
+ LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
+       局部     嵌套       全局      内置
+ 在函数中定义的变量正常情况下属于局部作用域
+ 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
+UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
+重要的三种图：...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -532,34 +556,6 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/python技巧/">
-            
-                <span>python的技巧和方法</span>
-        </a>
-        <div class="abstract-content">
-            1. 路径操作比起os模块的path方法，python3标准库的pathlib模块的Path处理起路径更加的容易。
-l例如：获取当前文件路径。os版：12print(os.path.dirname(__file__))print(os.getcwd())
-pathlib版：1print(pathlib.Path.cwd())
-看着好像没啥区别，然后看下面这个。
-获取上两级文件目录os版：1print(os.path.dirname(os.path.dirname(os.getcwd())))
-pathlib版:1print(pathlib.Path.cwd().parent.parent...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href="/2019/02/26/哈希算法 - 加密 - 编码/">
             
                 <span>哈希算法-加密-编码</span>
@@ -586,30 +582,17 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/day02-装饰器、函数、一条语句实现阶乘/">
+        <a class="abstract-title" href="/2019/02/26/python技巧/">
             
-                <span>装饰器、函数、一条语句实现阶乘</span>
+                <span>python的技巧和方法</span>
         </a>
         <div class="abstract-content">
-            filter –&gt;map –&gt;  reduce
-过滤       映射       归约
-过滤      映射     
-12345678a =[12, 95, 88, 45]sum([x**x for x in a if x % 2]) fn = lambda x,y :x**ydef foo():	passfn =foo
-在python中函数式一等对象（一定公民）
-
-函数可以赋值给变量
-函数可以作为函数的参数   —&gt;fillter
-函数可以作为函数的返回值 —&gt;装饰器
-
-函数参数:
-
-位置参数
-
-可变参数 -tuple
-
-关键字参数 - dict
-
-命名关键...
+            1. 路径操作比起os模块的path方法，python3标准库的pathlib模块的Path处理起路径更加的容易。
+l例如：获取当前文件路径。os版：12print(os.path.dirname(__file__))print(os.getcwd())
+pathlib版：1print(pathlib.Path.cwd())
+看着好像没啥区别，然后看下面这个。
+获取上两级文件目录os版：1print(os.path.dirname(os.path.dirname(os.getcwd())))
+pathlib版:1print(pathlib.Path.cwd().parent.parent...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -838,9 +821,56 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 12
         </div>
         <!-- search  -->
         
@@ -856,6 +886,11 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/数据库优化/">数据库优化</a>
         </li>
     
@@ -866,17 +901,17 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/类和类之间的关系/">类和类之间的关系</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
         </li>
     
     

@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>redis订阅python代码 · Amadeus&#39;s Studio</title>
+    <title>boolmfilter · Amadeus&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">Amadeus&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">redis订阅python代码</a>
+                <a href="#" class="post-name">boolmfilter</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            redis订阅python代码
+            boolmfilter
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">92</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/02/26</span>
+                    <span class="post-intro-time">2019/02/28</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,17 +395,21 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listener</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    监听器，用于监听Redis订阅的data</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># self.r = redis.Redis(host='139.198.4.56', port='6379')</span></span><br><span class="line">        <span class="comment"># redis_client为redis连接设置</span></span><br><span class="line">        self.redis_client = redis_client</span><br><span class="line">        self.crawl_seeds = self.redis_client.pubsub()</span><br><span class="line">        self.crawl_seeds.subscribe(<span class="string">'content'</span>)</span><br><span class="line">        logging.info(<span class="string">"连接到Redis..."</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">listen</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> self.crawl_seeds.listen():</span><br><span class="line">            <span class="keyword">if</span> item[<span class="string">'type'</span>] != <span class="string">'message'</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            meta = str(item[<span class="string">'data'</span>], encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">            logging.info(<span class="string">'收:%s '</span> % json.loads(meta).get(<span class="string">'content'</span>, <span class="string">''</span>).strip())</span><br></pre></td></tr></table></figure>
-<p>用日志打印接受结果</p>
+        <h2 id="Bloom-Filter的算法"><a href="#Bloom-Filter的算法" class="headerlink" title="Bloom Filter的算法"></a>Bloom Filter的算法</h2><p>​       在Bloom Filter 中使用位数组来辅助实现检测判断。在初始状态下，我们声明一个包含m位的位数组，它的所有位都是0，如图14-7所示。<br>​                    <img src="/img/14-7.png" alt=""></p>
+<p>​        现在我们有了一个待检测集合，其表示为S={x1, h ,…, Xn ｝ 。接下来需要做的就是检测一个x是否已经存在于集合S中。在Bloom Filter 算法中，首先使用k个相互独立、随机的散列函数来将集合S中的每个元素X1,X2,…Xn，映射到长度为m的位数组上，散列函数得到的结果记作位置索引，然后将位数组该位置索引的位置l 。例如，我们取k为3，表示有三个散列函数，x1经过三个散列函数映射得到的结果分别为l 、4 、8, X2 经过三个散列函数映射得到的结果分别为4 、6 、10 ，那么位数组的1、4、6、8、10。这五位就会置为1，如图14-8所示。<br>                      <img src="/img/14-8.png" alt=""></p>
+<p>​        如果有一个新的元素x，我们要判断x是否属于S集合，我们仍然用k个散列函数对x求映射结果。如果所有结果对应的位数组位置均为l，那么x属于S这个集合，如果有一个不为1，则x不属于S集合。<br>​       例如，新元素x 经过三个散列函数映射的结果为4、6、8，对应的位置均为1，则x属于S集合。如果结果为4、6、7，而7对应的位置为0，则x不属于S集合。<br>​        注意，这里m、n、k满足的关系是m＞nk时，也就是说位数组的长度m要比集合元素n和散列函数k的乘积还要大。<br>​        这样的判定方法很高效，但是也是有代价的，它可能把不属于这个集合的元素误认为属于这个集合。<br>​       当k值确定时，随着m/n的增大，误判概率逐渐变小。当m/n的值确定时，当k越靠近最优K值，误判概率越小。（计算公式不展示）</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HashMap</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment"># 实现基本的散列算法，将一个值经过散列运算后映射到一个m位数组的某一位上</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, m, seed)</span>:</span></span><br><span class="line">        self.m = m</span><br><span class="line">        self.seed = seed</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        哈希算法</span></span><br><span class="line"><span class="string">        :param value: value</span></span><br><span class="line"><span class="string">        :return: Hash value</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        ret = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(value)):</span><br><span class="line">            ret += self.seed * ret + ord(value[i])</span><br><span class="line">        <span class="comment"># print((self.m - 1) &amp; ret)</span></span><br><span class="line">        <span class="keyword">return</span> (self.m - <span class="number">1</span>) &amp; ret</span><br></pre></td></tr></table></figure>
+<p>​       value 是要被处理的内容。这里遍历了value的每一位，并利用ord( )方法取到每一位的ASCII码值，然后混淆seed进行迭代求和运算，最终得到一个数值。这个数值的结果就由value和seed唯一确定。再将这个数值和m进行按位与运算，即可获取到m位数组的映射结果，这样就实现了一个由字符串和seed来确定的散列函数。当m固定时，只要seed值相同，散列函数就是相同的，相同value必然会映射到相同的位置。所以如果想要构造几个不同的散列函数，只需要改变其seed就好了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  seed取值范围</span></span><br><span class="line">BLOOMFILTER_HASH_NUMBER = <span class="number">6</span></span><br><span class="line"><span class="comment">#  需要的位数m</span></span><br><span class="line">BLOOMFILTER_BIT = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BloomFilter</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Bloom Filter 里面需要用到k个散列函数，这里要对这几个散列</span></span><br><span class="line"><span class="string">    函数指定相同的m值和不同的seed值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, server)</span>:</span></span><br><span class="line">        self.block_num = <span class="number">1</span>,</span><br><span class="line">        self.key = <span class="string">'BloomFilter'</span></span><br><span class="line">        self.m = <span class="number">1</span> &lt;&lt; BLOOMFILTER_BIT</span><br><span class="line">        self.seeds = range(BLOOMFILTER_HASH_NUMBER)</span><br><span class="line">        self.server = server</span><br><span class="line">        <span class="comment">#  散列函数列表</span></span><br><span class="line">        self.maps = [HashMap(self.m, seed) <span class="keyword">for</span> seed <span class="keyword">in</span> self.seeds]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">exists</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="comment"># 判断元素是否重复</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> value:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        exist = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> map <span class="keyword">in</span> self.maps:</span><br><span class="line">            offset = map.hash(value)</span><br><span class="line">            exist = exist &amp; self.server.getbit(self.key, offset)</span><br><span class="line">        <span class="keyword">return</span> exist</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> f <span class="keyword">in</span> self.maps:</span><br><span class="line">            offset = f.hash(value)</span><br><span class="line">            print(offset)</span><br><span class="line">            self.server.setbit(self.key, offset, <span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>​       传入散列函数的个数，用它来生成几个不同的seed。用不同的seed来定义不同的散列原函数，这样我们就可以构造一个散列函数列表。遍历seed，构造带有不同seed值的HashMap对象，然后将HashMap对象保存成变量maps供后续使用。另外，server就是Redis连接对象，key就是这个m位数组的名称。</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://gilgameshzzz.github.io">Amadeus</a>
-            </p><p>原文链接：<a href="http://gilgameshzzz.github.io/2019/02/26/redis订阅python代码/">http://gilgameshzzz.github.io/2019/02/26/redis订阅python代码/</a>
-            </p><p>发表日期：<a href="http://gilgameshzzz.github.io/2019/02/26/redis订阅python代码/">February 26th 2019, 2:57:33 pm</a>
-            </p><p>更新日期：<a href="http://gilgameshzzz.github.io/2019/02/26/redis订阅python代码/">February 26th 2019, 3:07:38 pm</a>
+            </p><p>原文链接：<a href="http://gilgameshzzz.github.io/2019/02/28/bloomfilter/">http://gilgameshzzz.github.io/2019/02/28/bloomfilter/</a>
+            </p><p>发表日期：<a href="http://gilgameshzzz.github.io/2019/02/28/bloomfilter/">February 28th 2019, 4:38:37 pm</a>
+            </p><p>更新日期：<a href="http://gilgameshzzz.github.io/2019/02/28/bloomfilter/">February 28th 2019, 5:04:51 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -413,17 +417,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/02/28/bloomfilter/" title="boolmfilter">
-                    <div class="nextTitle">boolmfilter</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/02/26/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/" title="面向对象-OOP">
-                    <div class="prevTitle">面向对象-OOP</div>
+                <a href="/2019/02/26/redis订阅python代码/" title="redis订阅python代码">
+                    <div class="prevTitle">redis订阅python代码</div>
                 </a>
             
         </li>
@@ -537,7 +536,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bloom-Filter的算法"><span class="toc-number">1.</span> <span class="toc-text">Bloom Filter的算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number"></span> <span class="toc-text">代码</span></a>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
