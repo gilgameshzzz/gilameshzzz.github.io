@@ -74,12 +74,14 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: archer
+#theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/gilgameshzzz/gilgameshzzz.github.io.git
+  repository: ssh://git@github.com/gilgameshzzz/gilgameshzzz.github.io
+  branch: master
 
 jsonContent:
   meta: true
