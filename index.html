@@ -364,7 +364,8 @@ height:50vh;
                 <span>request_cookie</span>
         </a>
         <div class="abstract-content">
-            今天调用百度接口时，postman只需要传入BDUSS的内容就能获取数据，但在python requests的请求时，也传入BDUSS部分cookie，却不能获取数据。折腾半天，把浏览器上cookie全部复制传入，就能获取数据了。也不知道咋回事，知道的老哥请解答一下。
+            今天调用百度接口时，postman只需要传入BDUSS的内容就能获取数据，但在python requests的请求时，也传入BDUSS部分cookie，却不能获取数据。折腾半天，把浏览器上cookie全部复制传入，就能获取数据了。也不知道咋回事，知道的老哥请解答一下。================================
+解决了，是因为postman 除了自己填写的BDUSS还添加了BDPPN,所以python代码加上BDUSS和BDPPN也能获取数据。（BDUSS和BDPPN是百度自己设置的名字，也不知道postman是怎么知道要带上这个。）
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -543,6 +544,29 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/数据库优化/">
+            
+                <span>数据库优化</span>
+        </a>
+        <div class="abstract-content">
+            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/28/深拷贝和浅拷贝/">
             
                 <span>深拷贝和浅拷贝</span>
@@ -571,36 +595,15 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/数据库优化/">
+        <a class="abstract-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">
             
-                <span>数据库优化</span>
+                <span>哈希算法-加密-编码</span>
         </a>
         <div class="abstract-content">
-            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/多并发编程-多线程/">
-            
-                <span>多并发编程-多线程</span>
-        </a>
-        <div class="abstract-content">
-            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
-1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
+            哈希算法 - 加密 - 编码哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信息哈希算法是一个单向运算的函数（单向哈希函数）通过哈希算法可以将对象计算出哈希摘要但是哈希摘要无法还原成原来的对
+Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
+策略模式加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文对称加密 - 加密和解密使用同一个密钥 - AES非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSApip install pycrypto
+编码和解码 - 将内存中的二进制数据处理成其他的格式 - B...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1032,7 +1035,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
         </li>
     
     
@@ -1060,7 +1063,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
         </li>
     
     
@@ -1102,6 +1105,20 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
         </li>
     
@@ -1116,21 +1133,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
         </li>
     
     
@@ -1158,48 +1161,6 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
         </li>
     
@@ -1214,7 +1175,49 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
         </li>
     
     </ul></div>
