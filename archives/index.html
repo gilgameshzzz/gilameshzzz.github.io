@@ -346,13 +346,12 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/bloomfilter/">
+        <a class="abstract-title" href="/2019/02/28/redis订阅python代码/">
             
-                <span>boolmfilter</span>
+                <span>redis订阅python代码</span>
         </a>
         <div class="abstract-content">
-            Bloom Filter的算法​       在Bloom Filter 中使用位数组来辅助实现检测判断。在初始状态下，我们声明一个包含m位的位数组，它的所有位都是0，如图14-7所示。​                    
-​        现在我们有了一个待检测集合，其表示为S={x1, h ,…, Xn ｝ 。接下来需要做的就是检测一个x是否已经存在于集合S中。在Bloom Filter 算法中，首先使用k个相互独立、随机的散列函数来将集合S中的每个元素X1,X2,…Xn，映射到长度为m的位数组上，散列函数得到的结果记作位置索引，然后将位数组该位置索引的位置l 。例如，我们取k...
+            123456789101112131415161718class Listener(object):    """    监听器，用于监听Redis订阅的data    """    def __init__(self):        # self.r = redis.Redis(host='139.198.4.56', port='6379')        # redis_client为redis连接设置        self.redis_client = redis_client        self.crawl_seeds = self.redis_client.pubsu...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -370,17 +369,18 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/redis订阅python代码/">
+        <a class="abstract-title" href="/2019/02/28/bloomfilter/">
             
-                <span>redis订阅python代码</span>
+                <span>boolmfilter</span>
         </a>
         <div class="abstract-content">
-            123456789101112131415161718class Listener(object):    """    监听器，用于监听Redis订阅的data    """    def __init__(self):        # self.r = redis.Redis(host='139.198.4.56', port='6379')        # redis_client为redis连接设置        self.redis_client = redis_client        self.crawl_seeds = self.redis_client.pubsu...
+            Bloom Filter的算法&emsp;&emsp;在Bloom Filter 中使用位数组来辅助实现检测判断。在初始状态下，我们声明一个包含m位的位数组，它的所有位都是0，如图14-7所示。​                    
+&emsp;&emsp;现在我们有了一个待检测集合，其表示为S={x1, h ,…, Xn ｝ 。接下来需要做的就是检测一个x是否已经存在于集合S中。在Bloom Filter 算法中，首先使用k个相互独立、随机的散列函数来将集合S中的每个元素X1,X2,…Xn，映射到长度为m的位数组上，散列函数得到的结果记作位置索引，然后将位数组该位置索引的位置l 。...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
             
@@ -393,7 +393,37 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">
+        <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
+            
+                <span>类和类之间的关系</span>
+        </a>
+        <div class="abstract-content">
+            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
+Python解释器搜索一个变量会按照LEGB的顺序进行搜索
+ LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
+       局部     嵌套       全局      内置
+ 在函数中定义的变量正常情况下属于局部作用域
+ 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
+UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
+重要的三种图：...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">
             
                 <span>面向对象-OOP</span>
         </a>
@@ -413,7 +443,7 @@
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
             
@@ -426,7 +456,7 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/笔记/">
+        <a class="abstract-title" href="/2019/02/28/笔记/">
             
                 <span>web安全，celery</span>
         </a>
@@ -438,7 +468,7 @@
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
             
@@ -451,24 +481,17 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/类和类之间的关系/">
+        <a class="abstract-title" href="/2019/02/28/数据库优化/">
             
-                <span>类和类之间的关系</span>
+                <span>数据库优化</span>
         </a>
         <div class="abstract-content">
-            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
-Python解释器搜索一个变量会按照LEGB的顺序进行搜索
- LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
-       局部     嵌套       全局      内置
- 在函数中定义的变量正常情况下属于局部作用域
- 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
-UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
-重要的三种图：...
+            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
             
@@ -481,7 +504,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/深拷贝和浅拷贝/">
+        <a class="abstract-title" href="/2019/02/28/深拷贝和浅拷贝/">
             
                 <span>深拷贝和浅拷贝</span>
         </a>
@@ -496,7 +519,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
             
@@ -509,54 +532,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/数据库优化/">
-            
-                <span>数据库优化</span>
-        </a>
-        <div class="abstract-content">
-            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/多并发编程-多线程/">
-            
-                <span>多并发编程-多线程</span>
-        </a>
-        <div class="abstract-content">
-            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
-1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/哈希算法 - 加密 - 编码/">
+        <a class="abstract-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">
             
                 <span>哈希算法-加密-编码</span>
         </a>
@@ -569,7 +545,7 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
             
@@ -582,7 +558,31 @@ Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/python技巧/">
+        <a class="abstract-title" href="/2019/02/28/多并发编程-多线程/">
+            
+                <span>多并发编程-多线程</span>
+        </a>
+        <div class="abstract-content">
+            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
+1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/python技巧/">
             
                 <span>python的技巧和方法</span>
         </a>
@@ -597,7 +597,7 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
             
@@ -868,6 +868,16 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 12
@@ -881,67 +891,166 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
     
     
-    <div class="archive-year"> 2019 </div>
+    <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/数据库优化/">数据库优化</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/笔记/">web安全，celery</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/类和类之间的关系/">类和类之间的关系</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/多并发编程-多线程/">多并发编程-多线程</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/python技巧/">python的技巧和方法</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/Docker/">Docker</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/redis订阅python代码/">redis订阅python代码</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
         </li>
     
     </ul></div>
