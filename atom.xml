@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gilgameshzzz.github.io/"/>
-  <updated>2019-04-19T10:16:21.650Z</updated>
+  <updated>2019-04-28T02:13:50.494Z</updated>
   <id>http://gilgameshzzz.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB删除重复数据和唯一索引</title>
+    <link href="http://gilgameshzzz.github.io/2019/04/28/MongoDB%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/"/>
+    <id>http://gilgameshzzz.github.io/2019/04/28/MongoDB删除重复数据和唯一索引/</id>
+    <published>2019-04-28T01:56:36.804Z</published>
+    <updated>2019-04-28T02:13:50.494Z</updated>
+    
+    <content type="html"><![CDATA[<p>MongoDB 版本V4.0.9</p><h2 id="删除MongoDB删除重复数据"><a href="#删除MongoDB删除重复数据" class="headerlink" title="删除MongoDB删除重复数据"></a>删除MongoDB删除重复数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.CompanyId.aggregate([&#123;$group:&#123; _id:&#123;&apos;pid&apos;:&apos;$pid&apos;&#125;,count:&#123;$sum: 1&#125;,dups: &#123;$addToSet: &apos;$_id&apos;&#125;&#125;&#125;, &#123;$match: &#123;count: &#123;$gt: 1&#125;&#125;&#125;]).forEach(function(doc)&#123;</span><br><span class="line">doc.dups.shift();db.CompanyId.remove(&#123;_id: &#123;$in: doc.dups&#125;&#125;);&#125;)</span><br></pre></td></tr></table></figure><p>1.根据pid分组并统计数量，$group只会返回参与分组的字段，使用$addToSet在返回结果数组中增加_id字段</p><p>2.使用$match匹配数量大于1的数据</p><p>3.doc.dups.shift();表示从数组第一个值开始删除；作用是踢除重复数据其中一个_id，让后面的删除语句不会删除所有数据</p><p>4.使用forEach循环根据_id删除数据，$addToSet 操作符只有在值没有存在于数组中时才会向数组中添加一个值。如果值已经存在于数组中，$addToSet返回，不会修改数组。</p><p>注意：forEach和$addToSet的驼峰写法不能全部写成小写，因为mongodb严格区分大小写、mongodb严格区分大小写、mongodb严格区分大小写，重要的事情说三遍！</p><p>聚合框架它是数据聚合的一个新框架，其概念类似于数据处理的管道。 每个文档通过一个由多个节点组成的管道，每个节点有自己特殊的功能（分组、过滤等），文档经过管道处理后，最后输出相应的结果。</p><p>管道基本的功能有两个：<br>一是对文档进行“过滤”，也就是筛选出符合条件的文档;<br>二是对文档进行“变换”，也就是改变文档的输出形式。</p><h2 id="MongoDB唯一索引"><a href="#MongoDB唯一索引" class="headerlink" title="MongoDB唯一索引"></a>MongoDB唯一索引</h2><p>在ensureIndex 命令中指定”unique:true”即可创建唯一索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.CompanyId.ensureIndex(&#123;字段1: 1, 字段2: 1&#125;, &#123;unique: true&#125;);</span><br></pre></td></tr></table></figure></p><p>字段1：1，中的1表示升序，-1表示降序</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;MongoDB 版本V4.0.9&lt;/p&gt;
+&lt;h2 id=&quot;删除MongoDB删除重复数据&quot;&gt;&lt;a href=&quot;#删除MongoDB删除重复数据&quot; class=&quot;headerlink&quot; title=&quot;删除MongoDB删除重复数据&quot;&gt;&lt;/a&gt;删除MongoDB删除重复数据&lt;/
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>request_cookie</title>
@@ -167,27 +189,6 @@
   </entry>
   
   <entry>
-    <title>数据库优化</title>
-    <link href="http://gilgameshzzz.github.io/2019/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/"/>
-    <id>http://gilgameshzzz.github.io/2019/02/28/数据库优化/</id>
-    <published>2019-02-28T09:31:39.728Z</published>
-    <updated>2019-02-26T06:38:10.200Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-SQL语句优化"><a href="#1-SQL语句优化" class="headerlink" title="1.SQL语句优化"></a>1.SQL语句优化</h2><p>1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。<br>2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：<br>select id from t where num is null<br>可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：<br>select id from t where num=0<br>3）很多时候用 exists 代替 in 是一个好的选择<br>4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过滤</p><h2 id="2-索引优化"><a href="#2-索引优化" class="headerlink" title="2.索引优化"></a>2.索引优化</h2><p>  数据库索引，是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。索引的实现通常使用B树及其变种B+树。<br>  为表设置索引要付出代价的：一是增加了数据库的存储空间，二是在插入和修改数据时要花费较多的时间(因为索引也要随之变动)。<br>  创建索引可以大大提高系统的性能。<br>  第一，通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。<br>  第二，可以大大加快数据的检索速度，这也是创建索引的最主要的原因。<br>  第三，可以加速表和表之间的连接，特别是在实现数据的参考完整性方面特别有意义。<br>  第四，在使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序的时间。<br>  第五，通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。</p><p>  也许会有人要问：增加索引有如此多的优点，为什么不对表中的每一个列创建一个索引呢？因为，增加索引也有许多不利的方面。<br>  第一，创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加。<br>  第二，索引需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大。<br>  第三，当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，这样就降低了数据的维护速度。</p><h2 id="3-数据库结构优化"><a href="#3-数据库结构优化" class="headerlink" title="3.数据库结构优化"></a>3.数据库结构优化</h2><p>1）范式优化： 比如消除冗余（节省空间。。）<br>2）反范式优化：比如适当加冗余等（减少join）<br>3）拆分表： 分区将数据在物理上分隔开，不同分区的数据可以制定保存在处于不同磁盘上的数据文件里。这样，当对这个表进行查询时，只需要在表分区中进行扫描，而不必进行全表扫描，明显缩短了查询时间，另外处于不同磁盘的分区也将对这个表的数据传输分散在不同的磁盘I/O，一个精心设置的分区可以将数据传输对磁盘I/O竞争均匀地分散开。对数据量大的时时表可采取此方法。可按月自动建表分区。<br>4）拆分，又分垂直拆分和水平拆分：<br>   案例： 简单购物系统暂设涉及如下表：<br>   1.产品表（数据量10w，稳定） 2.订单表（数据量200w，且有增长趋势） 3.用户表 （数据量100w，且有增长趋势） 以mysql为例讲述下水平拆分和垂直拆分，mysql能容忍的数量级在百万静态数据可以到千万</p><p>​    垂直拆分：<br>解决问题：表与表之间的io竞争，不解决问题：单表中数据量增长出现的压力<br>方案: 把产品表和用户表放到一个server上 订单表单独放到一个server上 </p><p>​  水平拆分：<br>解决问题：单表中数据量增长出现的压力， 不解决问题：表与表之间的io争夺<br>方案: 用户表通过性别拆分为男用户表和女用户表 订单表通过已完成和完成中拆分为已完成订单和未完成订单 产品表 未完成订单放一个server上 已完成订单表盒男用户表放一个server上 女用户表放一个server上(女的爱购物 哈哈)</p><h2 id="4-服务器硬件优化"><a href="#4-服务器硬件优化" class="headerlink" title="4.服务器硬件优化"></a>4.服务器硬件优化</h2><h1 id="面试回答数据库优化问题从以下几个层面入手"><a href="#面试回答数据库优化问题从以下几个层面入手" class="headerlink" title="面试回答数据库优化问题从以下几个层面入手"></a>面试回答数据库优化问题从以下几个层面入手</h1><p>（1）、根据服务层面：配置mysql性能优化参数；<br>（2）、从系统层面增强mysql的性能：优化数据表结构、字段类型、字段索引、分表，分库、读写分离等等。<br>（3）、从数据库层面增强性能：优化SQL语句，合理使用字段索引。<br>（4）、从代码层面增强性能：使用缓存和NoSQL数据库方式存储，如MongoDB/Memcached/Redis来缓解高并发下数据库查询的压力。<br>（5）、减少数据库操作次数，尽量使用数据库访问驱动的批处理方法。<br>（6）、不常使用的数据迁移备份，避免每次都在海量数据中去检索。<br>（7）、提升数据库服务器硬件配置，或者搭建数据库集群。<br>（8）、编程手段防止SQL注入：使用JDBC PreparedStatement按位插入或查询；正则表达式过滤（非法字符串过滤）；</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-SQL语句优化&quot;&gt;&lt;a href=&quot;#1-SQL语句优化&quot; class=&quot;headerlink&quot; title=&quot;1.SQL语句优化&quot;&gt;&lt;/a&gt;1.SQL语句优化&lt;/h2&gt;&lt;p&gt;1）应尽量避免在 where 子句中使用!=或&amp;lt;&amp;gt;操作符，否则将引擎放弃
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>深拷贝和浅拷贝</title>
     <link href="http://gilgameshzzz.github.io/2019/02/28/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
     <id>http://gilgameshzzz.github.io/2019/02/28/深拷贝和浅拷贝/</id>
@@ -201,6 +202,27 @@
       
       
         &lt;h2 id=&quot;可变和不可变&quot;&gt;&lt;a href=&quot;#可变和不可变&quot; class=&quot;headerlink&quot; title=&quot;可变和不可变&quot;&gt;&lt;/a&gt;可变和不可变&lt;/h2&gt;&lt;p&gt;可变类型（mutable）：列表，字典；value值改变，id值不变；&lt;br&gt;不可变类型（unmutable
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据库优化</title>
+    <link href="http://gilgameshzzz.github.io/2019/02/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/"/>
+    <id>http://gilgameshzzz.github.io/2019/02/28/数据库优化/</id>
+    <published>2019-02-28T09:31:39.728Z</published>
+    <updated>2019-02-26T06:38:10.200Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-SQL语句优化"><a href="#1-SQL语句优化" class="headerlink" title="1.SQL语句优化"></a>1.SQL语句优化</h2><p>1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。<br>2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：<br>select id from t where num is null<br>可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：<br>select id from t where num=0<br>3）很多时候用 exists 代替 in 是一个好的选择<br>4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过滤</p><h2 id="2-索引优化"><a href="#2-索引优化" class="headerlink" title="2.索引优化"></a>2.索引优化</h2><p>  数据库索引，是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。索引的实现通常使用B树及其变种B+树。<br>  为表设置索引要付出代价的：一是增加了数据库的存储空间，二是在插入和修改数据时要花费较多的时间(因为索引也要随之变动)。<br>  创建索引可以大大提高系统的性能。<br>  第一，通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。<br>  第二，可以大大加快数据的检索速度，这也是创建索引的最主要的原因。<br>  第三，可以加速表和表之间的连接，特别是在实现数据的参考完整性方面特别有意义。<br>  第四，在使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序的时间。<br>  第五，通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。</p><p>  也许会有人要问：增加索引有如此多的优点，为什么不对表中的每一个列创建一个索引呢？因为，增加索引也有许多不利的方面。<br>  第一，创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加。<br>  第二，索引需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大。<br>  第三，当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，这样就降低了数据的维护速度。</p><h2 id="3-数据库结构优化"><a href="#3-数据库结构优化" class="headerlink" title="3.数据库结构优化"></a>3.数据库结构优化</h2><p>1）范式优化： 比如消除冗余（节省空间。。）<br>2）反范式优化：比如适当加冗余等（减少join）<br>3）拆分表： 分区将数据在物理上分隔开，不同分区的数据可以制定保存在处于不同磁盘上的数据文件里。这样，当对这个表进行查询时，只需要在表分区中进行扫描，而不必进行全表扫描，明显缩短了查询时间，另外处于不同磁盘的分区也将对这个表的数据传输分散在不同的磁盘I/O，一个精心设置的分区可以将数据传输对磁盘I/O竞争均匀地分散开。对数据量大的时时表可采取此方法。可按月自动建表分区。<br>4）拆分，又分垂直拆分和水平拆分：<br>   案例： 简单购物系统暂设涉及如下表：<br>   1.产品表（数据量10w，稳定） 2.订单表（数据量200w，且有增长趋势） 3.用户表 （数据量100w，且有增长趋势） 以mysql为例讲述下水平拆分和垂直拆分，mysql能容忍的数量级在百万静态数据可以到千万</p><p>​    垂直拆分：<br>解决问题：表与表之间的io竞争，不解决问题：单表中数据量增长出现的压力<br>方案: 把产品表和用户表放到一个server上 订单表单独放到一个server上 </p><p>​  水平拆分：<br>解决问题：单表中数据量增长出现的压力， 不解决问题：表与表之间的io争夺<br>方案: 用户表通过性别拆分为男用户表和女用户表 订单表通过已完成和完成中拆分为已完成订单和未完成订单 产品表 未完成订单放一个server上 已完成订单表盒男用户表放一个server上 女用户表放一个server上(女的爱购物 哈哈)</p><h2 id="4-服务器硬件优化"><a href="#4-服务器硬件优化" class="headerlink" title="4.服务器硬件优化"></a>4.服务器硬件优化</h2><h1 id="面试回答数据库优化问题从以下几个层面入手"><a href="#面试回答数据库优化问题从以下几个层面入手" class="headerlink" title="面试回答数据库优化问题从以下几个层面入手"></a>面试回答数据库优化问题从以下几个层面入手</h1><p>（1）、根据服务层面：配置mysql性能优化参数；<br>（2）、从系统层面增强mysql的性能：优化数据表结构、字段类型、字段索引、分表，分库、读写分离等等。<br>（3）、从数据库层面增强性能：优化SQL语句，合理使用字段索引。<br>（4）、从代码层面增强性能：使用缓存和NoSQL数据库方式存储，如MongoDB/Memcached/Redis来缓解高并发下数据库查询的压力。<br>（5）、减少数据库操作次数，尽量使用数据库访问驱动的批处理方法。<br>（6）、不常使用的数据迁移备份，避免每次都在海量数据中去检索。<br>（7）、提升数据库服务器硬件配置，或者搭建数据库集群。<br>（8）、编程手段防止SQL注入：使用JDBC PreparedStatement按位插入或查询；正则表达式过滤（非法字符串过滤）；</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-SQL语句优化&quot;&gt;&lt;a href=&quot;#1-SQL语句优化&quot; class=&quot;headerlink&quot; title=&quot;1.SQL语句优化&quot;&gt;&lt;/a&gt;1.SQL语句优化&lt;/h2&gt;&lt;p&gt;1）应尽量避免在 where 子句中使用!=或&amp;lt;&amp;gt;操作符，否则将引擎放弃
       
     
     </summary>

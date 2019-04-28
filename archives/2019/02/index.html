@@ -481,12 +481,17 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/数据库优化/">
+        <a class="abstract-title" href="/2019/02/28/深拷贝和浅拷贝/">
             
-                <span>数据库优化</span>
+                <span>深拷贝和浅拷贝</span>
         </a>
         <div class="abstract-content">
-            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
+            可变和不可变可变类型（mutable）：列表，字典；value值改变，id值不变；不可变类型（unmutable）：数字，字符串，元组；value值改变，id值也随之改变。
+赋值，拷贝和深拷贝赋值，只是创建一个变量，该变量指向原来内存地址，如下例：1n4 = n3 = n2 = n1 = "123/'Wu'"
+
+浅拷贝，在内存中只额外创建第一层数据，如下图123import copyn1 = &#123;"k1": "wu", "k2": 123, "k3": ["alex", 456]&#125;n3 = copy.copy(n1)
+
+深拷贝，在内存中将所有的数据重新创建一份（递归拷贝...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -504,17 +509,12 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/深拷贝和浅拷贝/">
+        <a class="abstract-title" href="/2019/02/28/数据库优化/">
             
-                <span>深拷贝和浅拷贝</span>
+                <span>数据库优化</span>
         </a>
         <div class="abstract-content">
-            可变和不可变可变类型（mutable）：列表，字典；value值改变，id值不变；不可变类型（unmutable）：数字，字符串，元组；value值改变，id值也随之改变。
-赋值，拷贝和深拷贝赋值，只是创建一个变量，该变量指向原来内存地址，如下例：1n4 = n3 = n2 = n1 = "123/'Wu'"
-
-浅拷贝，在内存中只额外创建第一层数据，如下图123import copyn1 = &#123;"k1": "wu", "k2": 123, "k3": ["alex", 456]&#125;n3 = copy.copy(n1)
-
-深拷贝，在内存中将所有的数据重新创建一份（递归拷贝...
+            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -914,9 +914,20 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 14
+        Total : 15
         </div>
         <!-- search  -->
         
@@ -932,7 +943,7 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
         </li>
     
     
@@ -955,12 +966,40 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
         </ul>
     
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
         </li>
     
     
@@ -1016,20 +1055,6 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
         </li>
     
@@ -1058,49 +1083,7 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
         </li>
     
     
@@ -1115,6 +1098,48 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/28/MongoDB删除重复数据和唯一索引/">MongoDB删除重复数据和唯一索引</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
         </li>
     
     </ul></div>
