@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Amadeus&#39;s Studio</title>
+    <title>Redis Sentinel哨兵 · Amadeus&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Amadeus&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Redis Sentinel哨兵</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Amadeus's Studio.</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/2077.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/1230.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Amadeus's Studio.
-            <!-- 文章页  -->
+            Redis Sentinel哨兵
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,43 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                吾行走于人间，一切都只是梦的延续或消逝……
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">956</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/09</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,365 +393,73 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/09/Redis_Sentinel/">
-            
-                <span>Redis Sentinel哨兵</span>
-        </a>
-        <div class="abstract-content">
-            Redis-Sentinel是Redis官方推荐的高可用性(HA)解决方案&emsp;&emsp;该方案由一个或多个Sentinel实例组成的Sentinel系统可以监视任意多个主服务器，以及这些主服务器属下的所有从服务器，并在被监视的主服务器进行下线状态时，自动将下线主服务器属下的某个从服务器升级为新的主服务器，然后由新的主服务器代替已下线的主服务器继续处理命令请求。Redis提供的sentinel（哨兵）机制，通过sentinel模式启动redis后，自动监控master/slave的运行状态，基本原理是：心跳机制+投票裁决，主要功能：
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="Redis-Sentinel是Redis官方推荐的高可用性-HA-解决方案"><a href="#Redis-Sentinel是Redis官方推荐的高可用性-HA-解决方案" class="headerlink" title="Redis-Sentinel是Redis官方推荐的高可用性(HA)解决方案"></a>Redis-Sentinel是Redis官方推荐的高可用性(HA)解决方案</h2><p>&emsp;&emsp;该方案由一个或多个Sentinel实例组成的Sentinel系统可以监视任意多个主服务器，以及这些主服务器属下的所有从服务器，并在被监视的主服务器进行下线状态时，自动将下线主服务器属下的某个从服务器升级为新的主服务器，然后由新的主服务器代替已下线的主服务器继续处理命令请求。Redis提供的sentinel（哨兵）机制，通过sentinel模式启动redis后，自动监控master/slave的运行状态，基本原理是：心跳机制+投票裁决，主要功能：</p>
+<ul>
+<li><strong>监控</strong>，Sentinel不断地监控redis是否按照预期良好地运行;</li>
+<li><strong>提醒</strong>，如果发现某个redis节点运行出现状况，Sentinel 可以通过 API 向管理员或者其他应用程序发送通知。或能够通知另外一个进程(例如它的客户端)。</li>
+<li><strong>自动故障迁移</strong>，当一个master节点不可用时，能够选举出master的多个slave(如果有超过一个slave的话)中的一个来作为新的master,其它的slave节点会将它所追随的master的地址改为被提升为master的slave的新地址。</li>
+<li><strong>自动更新配置信息</strong>：哨兵提供了认证和服务发现，客户端连接到哨兵去获取当前redis主服务器地址，如果发生故障转移，哨兵将会汇报新的服务器地址。每次进行主从切换时，sentinel配置文件自动更新。</li>
+</ul>
+<h2 id="运行Sentinel"><a href="#运行Sentinel" class="headerlink" title="运行Sentinel"></a>运行Sentinel</h2><p>第一种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-sentinel /path/to/sentinel.conf</span><br></pre></td></tr></table></figure></p>
+<p>第二种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /path/to/sentinel.conf --sentinel</span><br></pre></td></tr></table></figure></p>
+<p>无论使用哪种都需要指定一个配置文件，sentinel默认26379端口。</p>
+<h2 id="Sentinel配置"><a href="#Sentinel配置" class="headerlink" title="Sentinel配置"></a>Sentinel配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@DB ~]# vim /sentinel.conf </span><br><span class="line">port 26379</span><br><span class="line">daemonize yes #程序后台执行</span><br><span class="line">logfile &quot;/var/log/sentinel.log&quot;</span><br><span class="line">dir &quot;/tmp&quot;</span><br><span class="line">#第一次设置哨兵时此ip一定要设置为redis集群中的主ip</span><br><span class="line">sentinel monitor mymaster 127.0.0.1 6379 2 </span><br><span class="line">sentinel down-after-milliseconds mymaster 5000</span><br><span class="line">sentinel failover-timeout mymaster 6000</span><br><span class="line">sentinel config-epoch mymaster 7</span><br><span class="line">sentinel parallel-syncs mymaster 1</span><br></pre></td></tr></table></figure>
+<p><strong>sentinel monitor mymaster 127.0.0.1 6379 2</strong><br>&emsp;&emsp;这一行代表sentinel监控的master的名字叫做mymaster,地址为127.0.0.1:6379，行尾最后的一个2代表,当集群中有2个sentinel认为master死了时，才能真正认为该master已经不可用了。（sentinel集群中各个sentinel也有互相通信，通过gossip协议）。</p>
+<p>除了第一行配置，剩下的配置都有一个统一的格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sentinel &lt;option_name&gt; &lt;master_name&gt; &lt;option_value&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>down-after-milliseconds </li>
+</ul>
+<p>&emsp;&emsp;表示：如果master在“一定时间范围”内不回应PONG 或者是回复了一个错误消息，那么这个sentinel会主观地(单方面地)认为这个master已经不可用了(subjectively down, 也简称为SDOWN)。而这个down-after-milliseconds就是用来指定这个“一定时间范围”的，单位是毫秒。</p>
+<ul>
+<li>parallel-syncs</li>
+</ul>
+<p>&emsp;&emsp;在发生failover主备切换时，这个选项指定了最多可以有多少个slave同时对新的master进行同步，这个数字越小，完成failover所需的时间就越长，但是如果这个数字越大，就意味着越多的slave因为replication而不可用。可以通过将这个值设为 1 来保证每次只有一个slave处于不能处理命令请求的状态。</p>
+<p>​                   <a href="https://segmentfault.com/a/1190000002685515" target="_blank" rel="noopener">Redis Sentinel机制与用法(二)</a></p>
+<h2 id="python访问Sentinel集群"><a href="#python访问Sentinel集群" class="headerlink" title="python访问Sentinel集群"></a>python访问Sentinel集群</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> redis.sentinel <span class="keyword">import</span> Sentinel <span class="comment">#加载redis模块</span></span><br><span class="line"><span class="comment"># 连接哨兵服务器</span></span><br><span class="line">sentinel = Sentinel([(<span class="string">'192.168.221.160'</span>, <span class="number">26379</span>),</span><br><span class="line">       (<span class="string">'192.168.221.161'</span>, <span class="number">26379</span>)], socket_timeout=<span class="number">0.1</span>)</span><br><span class="line">       </span><br><span class="line">sentinel.discover_master(<span class="string">'mymaster'</span>) <span class="comment">#获取主redis服务器地址</span></span><br><span class="line"></span><br><span class="line">sentinel.discover_slaves(<span class="string">'mymaster'</span>)<span class="comment">#获取从redis服务区地址</span></span><br><span class="line"></span><br><span class="line">master = sentinel.master_for(<span class="string">'mymaster'</span>, socket_timeout=<span class="number">0.1</span>)</span><br><span class="line">master.set(<span class="string">'foo'</span>,<span class="string">'bar'</span>) <span class="comment">#获取主redis服务器并进行写入</span></span><br><span class="line"></span><br><span class="line">slave = sentinel.slave_for(<span class="string">'mymaster'</span>, socket_timeout=<span class="number">0.1</span>)</span><br><span class="line">slave.get(<span class="string">'foo'</span>)<span class="comment">#获取从redis服务器进行获取</span></span><br></pre></td></tr></table></figure>
 
-监控，Sentinel不断地监控redis是...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/28/MongoDB删除重复数据和唯一索引/">
-            
-                <span>MongoDB删除重复数据和唯一索引</span>
-        </a>
-        <div class="abstract-content">
-            MongoDB 版本V4.0.9
-删除MongoDB删除重复数据12db.CompanyId.aggregate([&#123;$group:&#123; _id:&#123;&apos;pid&apos;:&apos;$pid&apos;&#125;,count:&#123;$sum: 1&#125;,dups: &#123;$addToSet: &apos;$_id&apos;&#125;&#125;&#125;, &#123;$match: &#123;count: &#123;$gt: 1&#125;&#125;&#125;]).forEach(function(doc)&#12...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://gilgameshzzz.github.io">Amadeus</a>
+            </p><p>原文链接：<a href="http://gilgameshzzz.github.io/2019/05/09/Redis_Sentinel/">http://gilgameshzzz.github.io/2019/05/09/Redis_Sentinel/</a>
+            </p><p>发表日期：<a href="http://gilgameshzzz.github.io/2019/05/09/Redis_Sentinel/">May 9th 2019, 11:15:42 am</a>
+            </p><p>更新日期：<a href="http://gilgameshzzz.github.io/2019/05/09/Redis_Sentinel/">May 9th 2019, 3:08:57 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/19/request_cookie/">
-            
-                <span>request_cookie</span>
-        </a>
-        <div class="abstract-content">
-            今天调用百度接口时，postman只需要传入BDUSS的内容就能获取数据，但在python requests的请求时，也传入BDUSS部分cookie，却不能获取数据。折腾半天，把浏览器上cookie全部复制传入，就能获取数据了。也不知道咋回事，知道的老哥请解答一下。================================
-解决了，是因为postman 除了自己填写的BDUSS还添加了BDPPN,所以python代码加上BDUSS和BDPPN也能获取数据。（BDUSS和BDPPN是百度自己设置的名字，也不知道postman是怎么知道要带上这个。）=================...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/19</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/01/python每日定时/">
-            
-                <span>python定时运行代码</span>
-        </a>
-        <div class="abstract-content">
-            循环 sleep&emsp;&emsp;这种方式最简单，只要在循环里加入需要执行的代码，然后sleep后在执行。123456789import time# 每n秒执行一次def timer(n):    while True:        function(*args,**kargs)        time.sleep(n)# 5stimer(5)
-&emsp;&emsp;这个方法的缺点：只能执行固定间隔时间的任务，如果有定时任务就无法完成。并且sleep是一个阻塞函数，也就是说sleep这一段时间，啥都不能做。
-
-threading模块中的Timer&emsp;&emsp;thre...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/redis订阅python代码/">
-            
-                <span>redis订阅python代码</span>
-        </a>
-        <div class="abstract-content">
-            123456789101112131415161718class Listener(object):    """    监听器，用于监听Redis订阅的data    """    def __init__(self):        # self.r = redis.Redis(host='139.198.4.56', port='6379')        # redis_client为redis连接设置        self.redis_client = redis_client        self.crawl_seeds = self.redis_client.pubsu...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/bloomfilter/">
-            
-                <span>boolmfilter</span>
-        </a>
-        <div class="abstract-content">
-            Bloom Filter的算法&emsp;&emsp;在Bloom Filter 中使用位数组来辅助实现检测判断。在初始状态下，我们声明一个包含m位的位数组，它的所有位都是0，如图14-7所示。​                    
-&emsp;&emsp;现在我们有了一个待检测集合，其表示为S={x1, h ,…, Xn ｝ 。接下来需要做的就是检测一个x是否已经存在于集合S中。在Bloom Filter 算法中，首先使用k个相互独立、随机的散列函数来将集合S中的每个元素X1,X2,…Xn，映射到长度为m的位数组上，散列函数得到的结果记作位置索引，然后将位数组该位置索引的位置l 。...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">
-            
-                <span>面向对象-OOP</span>
-        </a>
-        <div class="abstract-content">
-            面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：
-
-抽象：类是抽象的，对象是具体的，定义类的过程就是一个抽象过程，  需要最
-数据抽象(发现静态特征（属性）)和行为抽象（发现动态特征（方法））
-
-封装: 把数据和操作数据的方法绑定到一起形成对象，这是一个隐藏实现细节暴露 简单的调用接口的过程。
-
-继承：从已有的类创建新类的过程，提供继承信息的称为父类（基类/超类）得到继 承信息的称为子类（派生类）
-
-多态：子类在继承父类的过程中可以重写（override）父类已有的方法 不同的子类可以给出不同放任实现版本，那么在调用该方法时会表现出多态
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
-            
-                <span>类和类之间的关系</span>
-        </a>
-        <div class="abstract-content">
-            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
-Python解释器搜索一个变量会按照LEGB的顺序进行搜索
- LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
-       局部     嵌套       全局      内置
- 在函数中定义的变量正常情况下属于局部作用域
- 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
-UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
-重要的三种图：...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/笔记/">
-            
-                <span>web安全，celery</span>
-        </a>
-        <div class="abstract-content">
-            生成用户令牌（token） -哈希码 - MD5/SHA1 -UUID - 全局唯一标识符 -JWT - Json web Token - djangorestframework-jwt
-1、防表单重复，每一次请求刷新令牌2、跨站身份网站伪造 - CSRF、XSRF
-##XSS - 跨站脚本攻击 - 消毒用户评论时输入的是 js脚本代码，发送后就会执行，所以要将特殊字符转换 1、清理用户输入，过滤js代码，过滤特殊字符​          [1] &lt;&gt;（尖括号）     [5] ;（分号）​          [2] “（引号）           [6] ()（括号）​  ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/数据库优化/">
-            
-                <span>数据库优化</span>
-        </a>
-        <div class="abstract-content">
-            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
-    </nav>
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src="/avatar/brs.jpg">
-    <div class="profile-name">Amadeus</div>
-    
-    <div class="profile-signature">
-        witness me
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+        </li>
+        <li class="previous">
             
-                <a href="mailto:zamadeus@qq.com" class="iconfont-archer email" title="email"></a>
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/04/28/MongoDB删除重复数据和唯一索引/" title="MongoDB删除重复数据和唯一索引">
+                    <div class="prevTitle">MongoDB删除重复数据和唯一索引</div>
+                </a>
             
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <a href="https://github.com/gilgameshzzz/" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
     
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="http://space.bilibili.com/10411934?" class="iconfont-archer bilibili" target="_blank" title="bilibili"></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href="//www.baidu.com" target="_black">friendA</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="//www.google.com" target="_black">friendB</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -787,6 +537,24 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-Sentinel是Redis官方推荐的高可用性-HA-解决方案"><span class="toc-number">1.</span> <span class="toc-text">Redis-Sentinel是Redis官方推荐的高可用性(HA)解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行Sentinel"><span class="toc-number">2.</span> <span class="toc-text">运行Sentinel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sentinel配置"><span class="toc-number">3.</span> <span class="toc-text">Sentinel配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python访问Sentinel集群"><span class="toc-number">4.</span> <span class="toc-text">python访问Sentinel集群</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1353,6 +1121,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
