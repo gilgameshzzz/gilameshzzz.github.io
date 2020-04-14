@@ -19,7 +19,7 @@
     
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
-    <meta name="description" content="">
+    <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Amadeus&#39;s Studio</title>
@@ -189,8 +189,8 @@
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js" as="script">
-    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin="">
-    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin="">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
     <!-- fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
@@ -359,6 +359,98 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/07/08/理解Go位运算符/">
+            
+                <span>理解Go位运算符</span>
+        </a>
+        <div class="abstract-content">
+            假定A = 14, B = 11,转换为二进制：A = 1110， B = 1011。
+
+
+
+A
+1
+1
+1
+0
+
+
+
+
+B
+1
+0
+1
+1
+
+
+
+A&amp;B
+1
+0
+1
+0
+
+
+
+A\
+B
+1
+1
+1
+1
+
+
+A^B
+0
+1
+0
+1
+
+
+
+A&amp;B 转换为十进制等于10;A|B 转换为十进制等于15;A^B 转换为十进制等于5;&amp; 是求与，两个数都为1才为1，其余情况为0；| 是求或，两个数都为0才为0，其余情况为1；^ 是求异，两个数相同时为0，不同时为1；还有 &lt;&lt; 左移运算，将数字的二进制左移n位，或是将数字的十进制乘以2的n次方，由”&lt;&lt...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/06/03/MongoDB删除重复数据和唯一索引/">
+            
+                <span>MongoDB删除重复数据和唯一索引</span>
+        </a>
+        <div class="abstract-content">
+            MongoDB 版本V4.0.9
+删除MongoDB删除重复数据12db.CompanyId.aggregate([&#123;$group:&#123; _id:&#123;&apos;pid&apos;:&apos;$pid&apos;&#125;,count:&#123;$sum: 1&#125;,dups: &#123;$addToSet: &apos;$_id&apos;&#125;&#125;&#125;, &#123;$match: &#123;count: &#123;$gt: 1&#125;&#125;&#125;]).forEach(function(doc)&#12...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/03</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/09/Redis_Sentinel/">
             
                 <span>Redis Sentinel哨兵</span>
@@ -372,30 +464,6 @@ height:50vh;
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/28/MongoDB删除重复数据和唯一索引/">
-            
-                <span>MongoDB删除重复数据和唯一索引</span>
-        </a>
-        <div class="abstract-content">
-            MongoDB 版本V4.0.9
-删除MongoDB删除重复数据12db.CompanyId.aggregate([&#123;$group:&#123; _id:&#123;&apos;pid&apos;:&apos;$pid&apos;&#125;,count:&#123;$sum: 1&#125;,dups: &#123;$addToSet: &apos;$_id&apos;&#125;&#125;&#125;, &#123;$match: &#123;count: &#123;$gt: 1&#125;&#125;&#125;]).forEach(function(doc)&#12...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/28</span>
             </div>
             <!-- tags  -->
             
@@ -576,29 +644,6 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
             生成用户令牌（token） -哈希码 - MD5/SHA1 -UUID - 全局唯一标识符 -JWT - Json web Token - djangorestframework-jwt
 1、防表单重复，每一次请求刷新令牌2、跨站身份网站伪造 - CSRF、XSRF
 ##XSS - 跨站脚本攻击 - 消毒用户评论时输入的是 js脚本代码，发送后就会执行，所以要将特殊字符转换 1、清理用户输入，过滤js代码，过滤特殊字符​          [1] &lt;&gt;（尖括号）     [5] ;（分号）​          [2] “（引号）           [6] ()（括号）​  ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/数据库优化/">
-            
-                <span>数据库优化</span>
-        </a>
-        <div class="abstract-content">
-            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1052,9 +1097,22 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 16
+        Total : 17
         </div>
         <!-- search  -->
         
@@ -1070,7 +1128,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
         </li>
     
     
@@ -1079,12 +1137,12 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
         </ul>
     
-    <div class="archive-year"> Invalid date </div>
+    <div class="archive-year"> 2019 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/理解Go位运算符/">理解Go位运算符</a>
         </li>
     
     
@@ -1112,7 +1170,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/06/03/MongoDB删除重复数据和唯一索引/">MongoDB删除重复数据和唯一索引</a>
         </li>
     
     
@@ -1154,104 +1212,6 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/28/MongoDB删除重复数据和唯一索引/">MongoDB删除重复数据和唯一索引</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
         </li>
     
@@ -1280,7 +1240,119 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
         </li>
     
     </ul></div>
@@ -1354,7 +1426,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
 
 

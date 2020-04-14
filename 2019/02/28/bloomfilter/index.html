@@ -19,7 +19,7 @@
     
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
-    <meta name="description" content="">
+    <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>boolmfilter · Amadeus&#39;s Studio</title>
@@ -191,8 +191,8 @@
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js" as="script">
-    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin="">
-    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin="">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
     <!-- fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
@@ -395,8 +395,8 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="Bloom-Filter的算法"><a href="#Bloom-Filter的算法" class="headerlink" title="Bloom Filter的算法"></a>Bloom Filter的算法</h2><p>&emsp;&emsp;在Bloom Filter 中使用位数组来辅助实现检测判断。在初始状态下，我们声明一个包含m位的位数组，它的所有位都是0，如图14-7所示。<br>​                    <img src="/img/14-7.png" alt=""></p>
-<p>&emsp;&emsp;现在我们有了一个待检测集合，其表示为S={x1, h ,…, Xn ｝ 。接下来需要做的就是检测一个x是否已经存在于集合S中。在Bloom Filter 算法中，首先使用k个相互独立、随机的散列函数来将集合S中的每个元素X1,X2,…Xn，映射到长度为m的位数组上，散列函数得到的结果记作位置索引，然后将位数组该位置索引的位置l 。例如，我们取k为3，表示有三个散列函数，x1经过三个散列函数映射得到的结果分别为l 、4 、8, X2 经过三个散列函数映射得到的结果分别为4 、6 、10 ，那么位数组的1、4、6、8、10。这五位就会置为1，如图14-8所示。<br>                      <img src="/img/14-8.png" alt=""></p>
+        <h2 id="Bloom-Filter的算法"><a href="#Bloom-Filter的算法" class="headerlink" title="Bloom Filter的算法"></a>Bloom Filter的算法</h2><p>&emsp;&emsp;在Bloom Filter 中使用位数组来辅助实现检测判断。在初始状态下，我们声明一个包含m位的位数组，它的所有位都是0，如图14-7所示。<br>​                    <img src="/img/14-7.png" alt></p>
+<p>&emsp;&emsp;现在我们有了一个待检测集合，其表示为S={x1, h ,…, Xn ｝ 。接下来需要做的就是检测一个x是否已经存在于集合S中。在Bloom Filter 算法中，首先使用k个相互独立、随机的散列函数来将集合S中的每个元素X1,X2,…Xn，映射到长度为m的位数组上，散列函数得到的结果记作位置索引，然后将位数组该位置索引的位置l 。例如，我们取k为3，表示有三个散列函数，x1经过三个散列函数映射得到的结果分别为l 、4 、8, X2 经过三个散列函数映射得到的结果分别为4 、6 、10 ，那么位数组的1、4、6、8、10。这五位就会置为1，如图14-8所示。<br>                      <img src="/img/14-8.png" alt></p>
 <p>&emsp;&emsp;如果有一个新的元素x，我们要判断x是否属于S集合，我们仍然用k个散列函数对x求映射结果。如果所有结果对应的位数组位置均为l，那么x属于S这个集合，如果有一个不为1，则x不属于S集合。<br>&emsp;&emsp;例如，新元素x 经过三个散列函数映射的结果为4、6、8，对应的位置均为1，则x属于S集合。如果结果为4、6、7，而7对应的位置为0，则x不属于S集合。<br>&emsp;&emsp;注意，这里m、n、k满足的关系是m＞nk时，也就是说位数组的长度m要比集合元素n和散列函数k的乘积还要大。<br>&emsp;&emsp;这样的判定方法很高效，但是也是有代价的，它可能把不属于这个集合的元素误认为属于这个集合。<br>&emsp;&emsp;当k值确定时，随着m/n的增大，误判概率逐渐变小。当m/n的值确定时，当k越靠近最优K值，误判概率越小。（计算公式不展示）</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HashMap</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment"># 实现基本的散列算法，将一个值经过散列运算后映射到一个m位数组的某一位上</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, m, seed)</span>:</span></span><br><span class="line">        self.m = m</span><br><span class="line">        self.seed = seed</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        哈希算法</span></span><br><span class="line"><span class="string">        :param value: value</span></span><br><span class="line"><span class="string">        :return: Hash value</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        ret = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(value)):</span><br><span class="line">            ret += self.seed * ret + ord(value[i])</span><br><span class="line">        <span class="comment"># print((self.m - 1) &amp; ret)</span></span><br><span class="line">        <span class="keyword">return</span> (self.m - <span class="number">1</span>) &amp; ret</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;value 是要被处理的内容。这里遍历了value的每一位，并利用ord( )方法取到每一位的ASCII码值，然后混淆seed进行迭代求和运算，最终得到一个数值。这个数值的结果就由value和seed唯一确定。再将这个数值和m进行按位与运算，即可获取到m位数组的映射结果，这样就实现了一个由字符串和seed来确定的散列函数。当m固定时，只要seed值相同，散列函数就是相同的，相同value必然会映射到相同的位置。所以如果想要构造几个不同的散列函数，只需要改变其seed就好了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  seed取值范围</span></span><br><span class="line">BLOOMFILTER_HASH_NUMBER = <span class="number">6</span></span><br><span class="line"><span class="comment">#  需要的位数m</span></span><br><span class="line">BLOOMFILTER_BIT = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BloomFilter</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Bloom Filter 里面需要用到k个散列函数，这里要对这几个散列</span></span><br><span class="line"><span class="string">    函数指定相同的m值和不同的seed值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, server)</span>:</span></span><br><span class="line">        self.block_num = <span class="number">1</span>,</span><br><span class="line">        self.key = <span class="string">'BloomFilter'</span></span><br><span class="line">        self.m = <span class="number">1</span> &lt;&lt; BLOOMFILTER_BIT</span><br><span class="line">        self.seeds = range(BLOOMFILTER_HASH_NUMBER)</span><br><span class="line">        self.server = server</span><br><span class="line">        <span class="comment">#  散列函数列表</span></span><br><span class="line">        self.maps = [HashMap(self.m, seed) <span class="keyword">for</span> seed <span class="keyword">in</span> self.seeds]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">exists</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="comment"># 判断元素是否重复</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> value:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        exist = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> map <span class="keyword">in</span> self.maps:</span><br><span class="line">            offset = map.hash(value)</span><br><span class="line">            exist = exist &amp; self.server.getbit(self.key, offset)</span><br><span class="line">        <span class="keyword">return</span> exist</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> f <span class="keyword">in</span> self.maps:</span><br><span class="line">            offset = f.hash(value)</span><br><span class="line">            print(offset)</span><br><span class="line">            self.server.setbit(self.key, offset, <span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
@@ -808,9 +808,22 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 16
+        Total : 17
         </div>
         <!-- search  -->
         
@@ -826,7 +839,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
         </li>
     
     
@@ -835,12 +848,12 @@ top:50vh;
     
         </ul>
     
-    <div class="archive-year"> Invalid date </div>
+    <div class="archive-year"> 2019 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/理解Go位运算符/">理解Go位运算符</a>
         </li>
     
     
@@ -868,7 +881,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/06/03/MongoDB删除重复数据和唯一索引/">MongoDB删除重复数据和唯一索引</a>
         </li>
     
     
@@ -910,104 +923,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/28/MongoDB删除重复数据和唯一索引/">MongoDB删除重复数据和唯一索引</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
         </li>
     
@@ -1036,7 +951,119 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
         </li>
     
     </ul></div>
@@ -1112,7 +1139,7 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
 
 

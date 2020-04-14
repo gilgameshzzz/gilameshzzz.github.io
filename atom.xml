@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gilgameshzzz.github.io/"/>
-  <updated>2019-05-09T07:08:57.376Z</updated>
+  <updated>2019-07-08T08:15:29.664Z</updated>
   <id>http://gilgameshzzz.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>理解Go位运算符</title>
+    <link href="http://gilgameshzzz.github.io/2019/07/08/%E7%90%86%E8%A7%A3Go%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/</id>
+    <published>2019-07-08T06:44:25.430Z</published>
+    <updated>2019-07-08T08:15:29.664Z</updated>
+    
+    <content type="html"><![CDATA[<p>假定A = 14, B = 11,转换为二进制：A = 1110， B = 1011。</p><table><thead><tr><th style="text-align:center">A</th><th style="text-align:center">1</th><th style="text-align:center">1</th><th style="text-align:center">1</th><th style="text-align:center">0</th></tr></thead><tbody><tr><td style="text-align:center">B</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">1</td><td></td></tr><tr><td style="text-align:center">A&amp;B</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td></td></tr><tr><td style="text-align:center">A\</td><td style="text-align:center">B</td><td style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center">1</td><td>1</td></tr><tr><td style="text-align:center">A^B</td><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr></tbody></table><p>A&amp;B 转换为十进制等于10;<br>A|B 转换为十进制等于15;<br>A^B 转换为十进制等于5;<br>&amp; 是求与，两个数都为1才为1，其余情况为0；<br>| 是求或，两个数都为0才为0，其余情况为1；<br>^ 是求异，两个数相同时为0，不同时为1；<br>还有 &lt;&lt; 左移运算，将数字的二进制左移n位，或是将数字的十进制乘以2的n次方，由”&lt;&lt;”右边的数指定移动的位数，高位丢弃，低位补0；<br>>&gt; 右移运算，将数字的二进制右移n位，或是将数字的十进制除以2的n次方，由”&gt;&gt;”右边的数指定移动的位数；</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;假定A = 14, B = 11,转换为二进制：A = 1110， B = 1011。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;A&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;1
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MongoDB删除重复数据和唯一索引</title>
+    <link href="http://gilgameshzzz.github.io/2019/06/03/MongoDB%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/"/>
+    <id>http://gilgameshzzz.github.io/2019/06/03/MongoDB删除重复数据和唯一索引/</id>
+    <published>2019-06-03T01:41:23.970Z</published>
+    <updated>2019-06-14T09:18:36.405Z</updated>
+    
+    <content type="html"><![CDATA[<p>MongoDB 版本V4.0.9</p><h2 id="删除MongoDB删除重复数据"><a href="#删除MongoDB删除重复数据" class="headerlink" title="删除MongoDB删除重复数据"></a>删除MongoDB删除重复数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.CompanyId.aggregate([&#123;$group:&#123; _id:&#123;&apos;pid&apos;:&apos;$pid&apos;&#125;,count:&#123;$sum: 1&#125;,dups: &#123;$addToSet: &apos;$_id&apos;&#125;&#125;&#125;, &#123;$match: &#123;count: &#123;$gt: 1&#125;&#125;&#125;]).forEach(function(doc)&#123;</span><br><span class="line">doc.dups.shift();db.CompanyId.remove(&#123;_id: &#123;$in: doc.dups&#125;&#125;);&#125;)</span><br></pre></td></tr></table></figure><p>1.根据pid分组并统计数量，$group只会返回参与分组的字段，使用$addToSet在返回结果数组中增加_id字段</p><p>2.使用$match匹配数量大于1的数据</p><p>3.doc.dups.shift();表示从数组第一个值开始删除；作用是踢除重复数据其中一个_id，让后面的删除语句不会删除所有数据</p><p>4.使用forEach循环根据_id删除数据，$addToSet 操作符只有在值没有存在于数组中时才会向数组中添加一个值。如果值已经存在于数组中，$addToSet返回，不会修改数组。</p><p>注意：forEach和$addToSet的驼峰写法不能全部写成小写，因为mongodb严格区分大小写、mongodb严格区分大小写、mongodb严格区分大小写，重要的事情说三遍！</p><p>聚合框架它是数据聚合的一个新框架，其概念类似于数据处理的管道。 每个文档通过一个由多个节点组成的管道，每个节点有自己特殊的功能（分组、过滤等），文档经过管道处理后，最后输出相应的结果。</p><p>管道基本的功能有两个：<br>一是对文档进行“过滤”，也就是筛选出符合条件的文档;<br>二是对文档进行“变换”，也就是改变文档的输出形式。</p><h2 id="MongoDB唯一索引"><a href="#MongoDB唯一索引" class="headerlink" title="MongoDB唯一索引"></a>MongoDB唯一索引</h2><p>在ensureIndex 命令中指定”unique:true”即可创建唯一索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.CompanyId.ensureIndex(&#123;字段1: 1, 字段2: 1&#125;, &#123;unique: true&#125;);</span><br></pre></td></tr></table></figure></p><p>字段1：1，中的1表示升序，-1表示降序</p><h2 id="MongoDB-查询两个字段的值相同的数据"><a href="#MongoDB-查询两个字段的值相同的数据" class="headerlink" title="MongoDB 查询两个字段的值相同的数据"></a>MongoDB 查询两个字段的值相同的数据</h2><p>因为MongoDB 不是关系型数据库，不可以直接使用”…Where 字段A=字段B”的方式来查找字段相同的条目，但可以使用“$where”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.foo.find(&#123;&quot;$where&quot;:function()&#123;</span><br><span class="line"> for(var current in this)&#123;</span><br><span class="line">   for(var other in this)&#123;</span><br><span class="line">     if(current != other &amp;&amp; this[current] == this[other])&#123;</span><br><span class="line">       return true;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> return false;</span><br><span class="line">&#125;&#125;)</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;MongoDB 版本V4.0.9&lt;/p&gt;
+&lt;h2 id=&quot;删除MongoDB删除重复数据&quot;&gt;&lt;a href=&quot;#删除MongoDB删除重复数据&quot; class=&quot;headerlink&quot; title=&quot;删除MongoDB删除重复数据&quot;&gt;&lt;/a&gt;删除MongoDB删除重复数据&lt;/
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Redis Sentinel哨兵</title>
@@ -30,28 +78,6 @@
       
       
         &lt;h2 id=&quot;Redis-Sentinel是Redis官方推荐的高可用性-HA-解决方案&quot;&gt;&lt;a href=&quot;#Redis-Sentinel是Redis官方推荐的高可用性-HA-解决方案&quot; class=&quot;headerlink&quot; title=&quot;Redis-Sentinel是Red
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB删除重复数据和唯一索引</title>
-    <link href="http://gilgameshzzz.github.io/2019/04/28/MongoDB%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/"/>
-    <id>http://gilgameshzzz.github.io/2019/04/28/MongoDB删除重复数据和唯一索引/</id>
-    <published>2019-04-28T01:56:36.804Z</published>
-    <updated>2019-04-28T02:13:50.494Z</updated>
-    
-    <content type="html"><![CDATA[<p>MongoDB 版本V4.0.9</p><h2 id="删除MongoDB删除重复数据"><a href="#删除MongoDB删除重复数据" class="headerlink" title="删除MongoDB删除重复数据"></a>删除MongoDB删除重复数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.CompanyId.aggregate([&#123;$group:&#123; _id:&#123;&apos;pid&apos;:&apos;$pid&apos;&#125;,count:&#123;$sum: 1&#125;,dups: &#123;$addToSet: &apos;$_id&apos;&#125;&#125;&#125;, &#123;$match: &#123;count: &#123;$gt: 1&#125;&#125;&#125;]).forEach(function(doc)&#123;</span><br><span class="line">doc.dups.shift();db.CompanyId.remove(&#123;_id: &#123;$in: doc.dups&#125;&#125;);&#125;)</span><br></pre></td></tr></table></figure><p>1.根据pid分组并统计数量，$group只会返回参与分组的字段，使用$addToSet在返回结果数组中增加_id字段</p><p>2.使用$match匹配数量大于1的数据</p><p>3.doc.dups.shift();表示从数组第一个值开始删除；作用是踢除重复数据其中一个_id，让后面的删除语句不会删除所有数据</p><p>4.使用forEach循环根据_id删除数据，$addToSet 操作符只有在值没有存在于数组中时才会向数组中添加一个值。如果值已经存在于数组中，$addToSet返回，不会修改数组。</p><p>注意：forEach和$addToSet的驼峰写法不能全部写成小写，因为mongodb严格区分大小写、mongodb严格区分大小写、mongodb严格区分大小写，重要的事情说三遍！</p><p>聚合框架它是数据聚合的一个新框架，其概念类似于数据处理的管道。 每个文档通过一个由多个节点组成的管道，每个节点有自己特殊的功能（分组、过滤等），文档经过管道处理后，最后输出相应的结果。</p><p>管道基本的功能有两个：<br>一是对文档进行“过滤”，也就是筛选出符合条件的文档;<br>二是对文档进行“变换”，也就是改变文档的输出形式。</p><h2 id="MongoDB唯一索引"><a href="#MongoDB唯一索引" class="headerlink" title="MongoDB唯一索引"></a>MongoDB唯一索引</h2><p>在ensureIndex 命令中指定”unique:true”即可创建唯一索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.CompanyId.ensureIndex(&#123;字段1: 1, 字段2: 1&#125;, &#123;unique: true&#125;);</span><br></pre></td></tr></table></figure></p><p>字段1：1，中的1表示升序，-1表示降序</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;MongoDB 版本V4.0.9&lt;/p&gt;
-&lt;h2 id=&quot;删除MongoDB删除重复数据&quot;&gt;&lt;a href=&quot;#删除MongoDB删除重复数据&quot; class=&quot;headerlink&quot; title=&quot;删除MongoDB删除重复数据&quot;&gt;&lt;/a&gt;删除MongoDB删除重复数据&lt;/
       
     
     </summary>
@@ -252,27 +278,6 @@
   </entry>
   
   <entry>
-    <title>哈希算法-加密-编码</title>
-    <link href="http://gilgameshzzz.github.io/2019/02/28/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%20-%20%E5%8A%A0%E5%AF%86%20-%20%E7%BC%96%E7%A0%81/"/>
-    <id>http://gilgameshzzz.github.io/2019/02/28/哈希算法 - 加密 - 编码/</id>
-    <published>2019-02-28T09:31:39.727Z</published>
-    <updated>2019-02-26T06:38:10.199Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="哈希算法-加密-编码"><a href="#哈希算法-加密-编码" class="headerlink" title="哈希算法 - 加密 - 编码"></a>哈希算法 - 加密 - 编码</h1><p>哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信息<br>哈希算法是一个单向运算的函数（单向哈希函数）<br>通过哈希算法可以将对象计算出哈希摘要但是哈希摘要无法还原成原来的对</p><p>Martin flower -代码有很多味道重复是最坏的一种<br>重构(refactor)</p><p>策略模式<br>加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文<br>对称加密 - 加密和解密使用同一个密钥 - AES<br>非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSA<br>pip install pycrypto</p><p>编码和解码 - 将内存中的二进制数据处理成其他的格式 - BASE64<br>BASE64 - 用64个字符(a-zA-Z0-9/+)表二进制数据示所有的</p><p>编码黑洞</p><p>中文/日文 –&gt;iso -8859 -1 Latin –&gt; ??</p><p>乱码 –&gt;编码和解码的时候没用使用相同的字符集</p><p>utf-8 -Unicode的一种变长实现方案</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StreamHasher</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""docstring for streamHasher"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, algorithm=<span class="string">'md5'</span>, size=<span class="number">4096</span>)</span>:</span></span><br><span class="line">        self.size = size</span><br><span class="line">        alg = algorithm.lower()</span><br><span class="line">        <span class="keyword">if</span> alg ==<span class="string">'md5'</span>:</span><br><span class="line">            self.hasher = hashlib.md5()</span><br><span class="line">        <span class="keyword">elif</span> alg == <span class="string">'sha1'</span>:</span><br><span class="line">            self.hasher = hashlib.sha1()</span><br><span class="line">        <span class="keyword">elif</span> alg == <span class="string">'sha256'</span>:</span><br><span class="line">            self.hasher = hashlib.sha256()</span><br><span class="line">        <span class="keyword">elif</span> alg == sha512:</span><br><span class="line">            self.hasher = hashlib.sha512()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">'不支持指定的哈希算法'</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># __call__ -魔术方法，调用对象的时候调用该方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self,stream)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.to_digest(stream)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">to_digest</span><span class="params">(self, stream)</span>:</span></span><br><span class="line">        <span class="string">'''生成MD5摘要'''</span></span><br><span class="line">        <span class="comment"># b" 终止符，读文本文件终止符 ''</span></span><br><span class="line">        hasher = self.hasher</span><br><span class="line">        <span class="keyword">for</span> buf <span class="keyword">in</span> iter(<span class="keyword">lambda</span>:stream.read(self.size), <span class="string">b''</span>):</span><br><span class="line">            hasher.update(b)</span><br><span class="line">            <span class="comment"># 16进制的md摘要</span></span><br><span class="line">        <span class="keyword">return</span> hasher.hexdigest()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_sha256_digest</span><span class="params">(stream, block_size = <span class="number">4096</span>)</span>:</span></span><br><span class="line">    <span class="string">'''生成MD5摘要'''</span></span><br><span class="line">    <span class="comment"># b" 终止符，读文本文件终止符 ''</span></span><br><span class="line">    hasher = hashlib.sha256()</span><br><span class="line">    <span class="keyword">for</span> buf <span class="keyword">in</span> iter(<span class="keyword">lambda</span>:stream.read(<span class="number">4096</span>), <span class="string">b''</span>):</span><br><span class="line">        hasher.update(b)</span><br><span class="line">        <span class="comment"># 16进制的md摘要</span></span><br><span class="line">    <span class="keyword">return</span> hasher.hexdigest()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    hasher = hashlib.md5()</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'aaa.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:     </span><br><span class="line">        sh = StreamHasher()</span><br><span class="line">        print(sh.to_digest(f))</span><br><span class="line">                </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;哈希算法-加密-编码&quot;&gt;&lt;a href=&quot;#哈希算法-加密-编码&quot; class=&quot;headerlink&quot; title=&quot;哈希算法 - 加密 - 编码&quot;&gt;&lt;/a&gt;哈希算法 - 加密 - 编码&lt;/h1&gt;&lt;p&gt;哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>多并发编程-多线程</title>
     <link href="http://gilgameshzzz.github.io/2019/02/28/%E5%A4%9A%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     <id>http://gilgameshzzz.github.io/2019/02/28/多并发编程-多线程/</id>
@@ -286,6 +291,27 @@
       
       
         &lt;h1 id=&quot;多并发编程-多线程&quot;&gt;&lt;a href=&quot;#多并发编程-多线程&quot; class=&quot;headerlink&quot; title=&quot;多并发编程-多线程&quot;&gt;&lt;/a&gt;多并发编程-多线程&lt;/h1&gt;&lt;h4 id=&quot;守护线程-守护进程-daemon&quot;&gt;&lt;a href=&quot;#守护线程-守护进程
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>哈希算法-加密-编码</title>
+    <link href="http://gilgameshzzz.github.io/2019/02/28/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%20-%20%E5%8A%A0%E5%AF%86%20-%20%E7%BC%96%E7%A0%81/"/>
+    <id>http://gilgameshzzz.github.io/2019/02/28/哈希算法 - 加密 - 编码/</id>
+    <published>2019-02-28T09:31:39.727Z</published>
+    <updated>2019-02-26T06:38:10.199Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="哈希算法-加密-编码"><a href="#哈希算法-加密-编码" class="headerlink" title="哈希算法 - 加密 - 编码"></a>哈希算法 - 加密 - 编码</h1><p>哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信息<br>哈希算法是一个单向运算的函数（单向哈希函数）<br>通过哈希算法可以将对象计算出哈希摘要但是哈希摘要无法还原成原来的对</p><p>Martin flower -代码有很多味道重复是最坏的一种<br>重构(refactor)</p><p>策略模式<br>加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文<br>对称加密 - 加密和解密使用同一个密钥 - AES<br>非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSA<br>pip install pycrypto</p><p>编码和解码 - 将内存中的二进制数据处理成其他的格式 - BASE64<br>BASE64 - 用64个字符(a-zA-Z0-9/+)表二进制数据示所有的</p><p>编码黑洞</p><p>中文/日文 –&gt;iso -8859 -1 Latin –&gt; ??</p><p>乱码 –&gt;编码和解码的时候没用使用相同的字符集</p><p>utf-8 -Unicode的一种变长实现方案</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StreamHasher</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""docstring for streamHasher"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, algorithm=<span class="string">'md5'</span>, size=<span class="number">4096</span>)</span>:</span></span><br><span class="line">        self.size = size</span><br><span class="line">        alg = algorithm.lower()</span><br><span class="line">        <span class="keyword">if</span> alg ==<span class="string">'md5'</span>:</span><br><span class="line">            self.hasher = hashlib.md5()</span><br><span class="line">        <span class="keyword">elif</span> alg == <span class="string">'sha1'</span>:</span><br><span class="line">            self.hasher = hashlib.sha1()</span><br><span class="line">        <span class="keyword">elif</span> alg == <span class="string">'sha256'</span>:</span><br><span class="line">            self.hasher = hashlib.sha256()</span><br><span class="line">        <span class="keyword">elif</span> alg == sha512:</span><br><span class="line">            self.hasher = hashlib.sha512()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">'不支持指定的哈希算法'</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># __call__ -魔术方法，调用对象的时候调用该方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self,stream)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.to_digest(stream)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">to_digest</span><span class="params">(self, stream)</span>:</span></span><br><span class="line">        <span class="string">'''生成MD5摘要'''</span></span><br><span class="line">        <span class="comment"># b" 终止符，读文本文件终止符 ''</span></span><br><span class="line">        hasher = self.hasher</span><br><span class="line">        <span class="keyword">for</span> buf <span class="keyword">in</span> iter(<span class="keyword">lambda</span>:stream.read(self.size), <span class="string">b''</span>):</span><br><span class="line">            hasher.update(b)</span><br><span class="line">            <span class="comment"># 16进制的md摘要</span></span><br><span class="line">        <span class="keyword">return</span> hasher.hexdigest()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_sha256_digest</span><span class="params">(stream, block_size = <span class="number">4096</span>)</span>:</span></span><br><span class="line">    <span class="string">'''生成MD5摘要'''</span></span><br><span class="line">    <span class="comment"># b" 终止符，读文本文件终止符 ''</span></span><br><span class="line">    hasher = hashlib.sha256()</span><br><span class="line">    <span class="keyword">for</span> buf <span class="keyword">in</span> iter(<span class="keyword">lambda</span>:stream.read(<span class="number">4096</span>), <span class="string">b''</span>):</span><br><span class="line">        hasher.update(b)</span><br><span class="line">        <span class="comment"># 16进制的md摘要</span></span><br><span class="line">    <span class="keyword">return</span> hasher.hexdigest()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    hasher = hashlib.md5()</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'aaa.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:     </span><br><span class="line">        sh = StreamHasher()</span><br><span class="line">        print(sh.to_digest(f))</span><br><span class="line">                </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;哈希算法-加密-编码&quot;&gt;&lt;a href=&quot;#哈希算法-加密-编码&quot; class=&quot;headerlink&quot; title=&quot;哈希算法 - 加密 - 编码&quot;&gt;&lt;/a&gt;哈希算法 - 加密 - 编码&lt;/h1&gt;&lt;p&gt;哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信
       
     
     </summary>
@@ -315,6 +341,28 @@
   </entry>
   
   <entry>
+    <title>Docker</title>
+    <link href="http://gilgameshzzz.github.io/2019/02/28/Docker/"/>
+    <id>http://gilgameshzzz.github.io/2019/02/28/Docker/</id>
+    <published>2019-02-28T09:31:39.725Z</published>
+    <updated>2019-02-26T06:38:10.196Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p>Docker - Debian - cgroup / nameplace</p><p>RabbitMQ - 消息服务 -Ruby</p><p>ElasticSearch / Solr - 搜索引擎 - Java</p><p>虚拟机 - 屏蔽软硬件环境的差异  - VMware / virtual Box</p><p>重量级容器（占用的系统资源多）</p><p>Nginx / MySQL / Redis / RabbitMQ</p><h4 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h4><p>yum -y intsall docker-io</p><ul><li><p>启动Docker 服务</p><p>systemctl start docker</p></li><li><p>查看镜像</p><p>docker images</p><p>下载mysql5.7 镜像(安装盘)</p></li></ul><p>Docker pull mysql:5.7（镜像名：版本号）</p><h4 id="创建容器（nginx"><a href="#创建容器（nginx" class="headerlink" title="创建容器（nginx)"></a>创建容器（nginx)</h4><p>  docker run -d -p 80:80 –name  nginx(容器名字)  nginx</p><p>​    创建容器（mysql)</p><p> docker run -d -p 3306:3306 –name mysql57 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7</p><p>查看进程信息</p><p>netstat -nap | grep </p><p>查看所有容器</p><p>docker container ls -a</p><p>查看已经启动的容器</p><p>docker ps</p><p>启动/停止容器</p><p>docker start /stop 容器名</p><h4 id="Redis-基于内存的kv的数据库"><a href="#Redis-基于内存的kv的数据库" class="headerlink" title="Redis - 基于内存的kv的数据库"></a>Redis - 基于内存的kv的数据库</h4><p>Redis提供了两种持久化方法</p><p>​        RDB - 内存中的数据放入一个二进制的dump文件中</p><p>​        AOF - 用一个文件记录用户操作的命令 - 每秒记录一次用户操作</p><p>docker run -d -p  6379:6379 –name redis-master redis</p><p>redis-server –appendonly  yes  –requirepass tmz55555</p><p>docker run -d –link redis-master:redis-master –name redis-slave-1 redis:latest redis-server – slaveof redis-mater 6379 –masterauth tmz55555 </p><p>docker run -d –link redis-master:redis-master –name redis-slave-2 redis:latest redis-server – slaveof redis-mater 6379 –masterauth tmz55555 </p><p>docker run -d –link redis-master:redis-master –name redis-slave-3 redis:latest redis-server – slaveof redis-mater 6379 –masterauth tmz55555 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Docker&quot;&gt;&lt;a href=&quot;#Docker&quot; class=&quot;headerlink&quot; title=&quot;Docker&quot;&gt;&lt;/a&gt;Docker&lt;/h1&gt;&lt;p&gt;Docker - Debian - cgroup / nameplace&lt;/p&gt;
+&lt;p&gt;RabbitMQ -
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>装饰器、函数、一条语句实现阶乘</title>
     <link href="http://gilgameshzzz.github.io/2019/02/28/day02-%E8%A3%85%E9%A5%B0%E5%99%A8%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E5%AE%9E%E7%8E%B0%E9%98%B6%E4%B9%98/"/>
     <id>http://gilgameshzzz.github.io/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/</id>
@@ -331,28 +379,6 @@
 &lt;p&gt;过滤       映射       归约&lt;/p&gt;
 &lt;p&gt;过滤      映射     &lt;/p&gt;
 &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Docker</title>
-    <link href="http://gilgameshzzz.github.io/2019/02/28/Docker/"/>
-    <id>http://gilgameshzzz.github.io/2019/02/28/Docker/</id>
-    <published>2019-02-28T09:31:39.725Z</published>
-    <updated>2019-02-26T06:38:10.196Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p>Docker - Debian - cgroup / nameplace</p><p>RabbitMQ - 消息服务 -Ruby</p><p>ElasticSearch / Solr - 搜索引擎 - Java</p><p>虚拟机 - 屏蔽软硬件环境的差异  - VMware / virtual Box</p><p>重量级容器（占用的系统资源多）</p><p>Nginx / MySQL / Redis / RabbitMQ</p><h4 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h4><p>yum -y intsall docker-io</p><ul><li><p>启动Docker 服务</p><p>systemctl start docker</p></li><li><p>查看镜像</p><p>docker images</p><p>下载mysql5.7 镜像(安装盘)</p></li></ul><p>Docker pull mysql:5.7（镜像名：版本号）</p><h4 id="创建容器（nginx"><a href="#创建容器（nginx" class="headerlink" title="创建容器（nginx)"></a>创建容器（nginx)</h4><p>  docker run -d -p 80:80 –name  nginx(容器名字)  nginx</p><p>​    创建容器（mysql)</p><p> docker run -d -p 3306:3306 –name mysql57 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7</p><p>查看进程信息</p><p>netstat -nap | grep </p><p>查看所有容器</p><p>docker container ls -a</p><p>查看已经启动的容器</p><p>docker ps</p><p>启动/停止容器</p><p>docker start /stop 容器名</p><h4 id="Redis-基于内存的kv的数据库"><a href="#Redis-基于内存的kv的数据库" class="headerlink" title="Redis - 基于内存的kv的数据库"></a>Redis - 基于内存的kv的数据库</h4><p>Redis提供了两种持久化方法</p><p>​        RDB - 内存中的数据放入一个二进制的dump文件中</p><p>​        AOF - 用一个文件记录用户操作的命令 - 每秒记录一次用户操作</p><p>docker run -d -p  6379:6379 –name redis-master redis</p><p>redis-server –appendonly  yes  –requirepass tmz55555</p><p>docker run -d –link redis-master:redis-master –name redis-slave-1 redis:latest redis-server – slaveof redis-mater 6379 –masterauth tmz55555 </p><p>docker run -d –link redis-master:redis-master –name redis-slave-2 redis:latest redis-server – slaveof redis-mater 6379 –masterauth tmz55555 </p><p>docker run -d –link redis-master:redis-master –name redis-slave-3 redis:latest redis-server – slaveof redis-mater 6379 –masterauth tmz55555 </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Docker&quot;&gt;&lt;a href=&quot;#Docker&quot; class=&quot;headerlink&quot; title=&quot;Docker&quot;&gt;&lt;/a&gt;Docker&lt;/h1&gt;&lt;p&gt;Docker - Debian - cgroup / nameplace&lt;/p&gt;
-&lt;p&gt;RabbitMQ -
       
     
     </summary>

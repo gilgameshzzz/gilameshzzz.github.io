@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Amadeus&#39;s Studio</title>
+    <title>理解Go位运算符 · Amadeus&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Amadeus&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">理解Go位运算符</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Amadeus's Studio.</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/1230.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            理解Go位运算符
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">231</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/07/08</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,220 +393,94 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/数据库优化/">
-            
-                <span>数据库优化</span>
-        </a>
-        <div class="abstract-content">
-            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>假定A = 14, B = 11,转换为二进制：A = 1110， B = 1011。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">A</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">A&amp;B</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">A\</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align:center">A^B</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>A&amp;B 转换为十进制等于10;<br>A|B 转换为十进制等于15;<br>A^B 转换为十进制等于5;<br>&amp; 是求与，两个数都为1才为1，其余情况为0；<br>| 是求或，两个数都为0才为0，其余情况为1；<br>^ 是求异，两个数相同时为0，不同时为1；<br>还有 &lt;&lt; 左移运算，将数字的二进制左移n位，或是将数字的十进制乘以2的n次方，由”&lt;&lt;”右边的数指定移动的位数，高位丢弃，低位补0；<br>>&gt; 右移运算，将数字的二进制右移n位，或是将数字的十进制除以2的n次方，由”&gt;&gt;”右边的数指定移动的位数；</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/深拷贝和浅拷贝/">
-            
-                <span>深拷贝和浅拷贝</span>
-        </a>
-        <div class="abstract-content">
-            可变和不可变可变类型（mutable）：列表，字典；value值改变，id值不变；不可变类型（unmutable）：数字，字符串，元组；value值改变，id值也随之改变。
-赋值，拷贝和深拷贝赋值，只是创建一个变量，该变量指向原来内存地址，如下例：1n4 = n3 = n2 = n1 = "123/'Wu'"
-
-浅拷贝，在内存中只额外创建第一层数据，如下图123import copyn1 = &#123;"k1": "wu", "k2": 123, "k3": ["alex", 456]&#125;n3 = copy.copy(n1)
-
-深拷贝，在内存中将所有的数据重新创建一份（递归拷贝...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://gilgameshzzz.github.io">Amadeus</a>
+            </p><p>原文链接：<a href="http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/">http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/</a>
+            </p><p>发表日期：<a href="http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/">July 8th 2019, 2:44:25 pm</a>
+            </p><p>更新日期：<a href="http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/">July 8th 2019, 4:15:29 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/多并发编程-多线程/">
-            
-                <span>多并发编程-多线程</span>
-        </a>
-        <div class="abstract-content">
-            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
-1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">
-            
-                <span>哈希算法-加密-编码</span>
-        </a>
-        <div class="abstract-content">
-            哈希算法 - 加密 - 编码哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信息哈希算法是一个单向运算的函数（单向哈希函数）通过哈希算法可以将对象计算出哈希摘要但是哈希摘要无法还原成原来的对
-Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
-策略模式加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文对称加密 - 加密和解密使用同一个密钥 - AES非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSApip install pycrypto
-编码和解码 - 将内存中的二进制数据处理成其他的格式 - B...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/python技巧/">
-            
-                <span>python的技巧和方法</span>
-        </a>
-        <div class="abstract-content">
-            1. 路径操作比起os模块的path方法，python3标准库的pathlib模块的Path处理起路径更加的容易。
-l例如：获取当前文件路径。os版：12print(os.path.dirname(__file__))print(os.getcwd())
-pathlib版：1print(pathlib.Path.cwd())
-看着好像没啥区别，然后看下面这个。
-获取上两级文件目录os版：1print(os.path.dirname(os.path.dirname(os.getcwd())))
-pathlib版:1print(pathlib.Path.cwd().parent.parent...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/Docker/">
-            
-                <span>Docker</span>
-        </a>
-        <div class="abstract-content">
-            DockerDocker - Debian - cgroup / nameplace
-RabbitMQ - 消息服务 -Ruby
-ElasticSearch / Solr - 搜索引擎 - Java
-虚拟机 - 屏蔽软硬件环境的差异  - VMware / virtual Box
-重量级容器（占用的系统资源多）
-Nginx / MySQL / Redis / RabbitMQ
-安装Dockeryum -y intsall docker-io
-
-启动Docker 服务
-systemctl start docker
-
-查看镜像
-docker images
-下载mysql5.7 镜像(安装盘)...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">
-            
-                <span>装饰器、函数、一条语句实现阶乘</span>
-        </a>
-        <div class="abstract-content">
-            filter –&gt;map –&gt;  reduce
-过滤       映射       归约
-过滤      映射     
-12345678a =[12, 95, 88, 45]sum([x**x for x in a if x % 2]) fn = lambda x,y :x**ydef foo():	passfn =foo
-在python中函数式一等对象（一定公民）
-
-函数可以赋值给变量
-函数可以作为函数的参数   —&gt;fillter
-函数可以作为函数的返回值 —&gt;装饰器
-
-函数参数:
-
-位置参数
-
-可变参数 -tuple
-
-关键字参数 - dict
-
-命名关键...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/06/03/MongoDB删除重复数据和唯一索引/" title="MongoDB删除重复数据和唯一索引">
+                    <div class="prevTitle">MongoDB删除重复数据和唯一索引</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -631,6 +560,24 @@ docker images
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1224,6 +1171,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
