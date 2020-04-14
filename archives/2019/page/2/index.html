@@ -346,29 +346,6 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/数据库优化/">
-            
-                <span>数据库优化</span>
-        </a>
-        <div class="abstract-content">
-            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href="/2019/02/28/深拷贝和浅拷贝/">
             
                 <span>深拷贝和浅拷贝</span>
@@ -397,13 +374,12 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/多并发编程-多线程/">
+        <a class="abstract-title" href="/2019/02/28/数据库优化/">
             
-                <span>多并发编程-多线程</span>
+                <span>数据库优化</span>
         </a>
         <div class="abstract-content">
-            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
-1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
+            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -430,6 +406,30 @@
 Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
 策略模式加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文对称加密 - 加密和解密使用同一个密钥 - AES非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSApip install pycrypto
 编码和解码 - 将内存中的二进制数据处理成其他的格式 - B...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/多并发编程-多线程/">
+            
+                <span>多并发编程-多线程</span>
+        </a>
+        <div class="abstract-content">
+            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
+1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -475,42 +475,6 @@ pathlib版:1print(pathlib.Path.cwd().parent.parent...
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/Docker/">
-            
-                <span>Docker</span>
-        </a>
-        <div class="abstract-content">
-            DockerDocker - Debian - cgroup / nameplace
-RabbitMQ - 消息服务 -Ruby
-ElasticSearch / Solr - 搜索引擎 - Java
-虚拟机 - 屏蔽软硬件环境的差异  - VMware / virtual Box
-重量级容器（占用的系统资源多）
-Nginx / MySQL / Redis / RabbitMQ
-安装Dockeryum -y intsall docker-io
-
-启动Docker 服务
-systemctl start docker
-
-查看镜像
-docker images
-下载mysql5.7 镜像(安装盘)...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">
             
                 <span>装饰器、函数、一条语句实现阶乘</span>
@@ -535,6 +499,42 @@ docker images
 关键字参数 - dict
 
 命名关键...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/Docker/">
+            
+                <span>Docker</span>
+        </a>
+        <div class="abstract-content">
+            DockerDocker - Debian - cgroup / nameplace
+RabbitMQ - 消息服务 -Ruby
+ElasticSearch / Solr - 搜索引擎 - Java
+虚拟机 - 屏蔽软硬件环境的差异  - VMware / virtual Box
+重量级容器（占用的系统资源多）
+Nginx / MySQL / Redis / RabbitMQ
+安装Dockeryum -y intsall docker-io
+
+启动Docker 服务
+systemctl start docker
+
+查看镜像
+docker images
+下载mysql5.7 镜像(安装盘)...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -793,125 +793,9 @@ docker images
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -921,48 +805,6 @@ docker images
     
     
     
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/理解Go位运算符/">理解Go位运算符</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
     
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
@@ -983,7 +825,7 @@ docker images
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
         </li>
     
     
@@ -998,132 +840,6 @@ docker images
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
         </li>
     
     
@@ -1151,13 +867,204 @@ docker images
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href="/2020/04/14/MyBatisPlusLearning/">MyBatisPlus入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href="/2020/04/14/javaQuestions/">Java常见面试题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/理解Go位运算符/">理解Go位运算符</a>
         </li>
     
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

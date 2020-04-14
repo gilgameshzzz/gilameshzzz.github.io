@@ -359,6 +359,71 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2020/04/14/MyBatisPlusLearning/">
+            
+                <span>MyBatisPlus入门</span>
+        </a>
+        <div class="abstract-content">
+            快速入门使用第三方组件：1、导入对应的依赖2、研究依赖如何配置3、代码如何编写4、提高扩展技术能力1步骤
+1、创建数据库，2、创建数据表，3、编写项目，初始化项目，4、导入依赖,注意不要同时导入Mybatis和MyBatis-plus引入 spring-boot-starter、spring-boot-starter-test、mybatis-plus-boot-starter、lombok、h2 依赖：1234567891011121314151617&lt;!-- lombok --&gt;&lt;dependency&gt;  &lt;groupId&gt;org.projectl...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="MyBatisPlus">MyBatisPlus</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/14/javaQuestions/">
+            
+                <span>Java常见面试题</span>
+        </a>
+        <div class="abstract-content">
+            ================================
+设计模式分为：创建型模式（单例、工厂、抽象工厂）、结构型模式（代理、组合、装饰）、行为型模式（策略、模板方法、迭代器）================================问：请解释一下对象的创建过程?(半初始化)
+答：1、申请内存，给对象里的成员变量设为默认值(半初始化)，2、调用对象的构造方法，再给对象里的成员变量设初始值，3、将变量名与对象进行关联
+
+===============================
+DCL（Double Check Lock）单例
+12345678910111213class...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/07/08/理解Go位运算符/">
             
                 <span>理解Go位运算符</span>
@@ -573,39 +638,6 @@ threading模块中的Timer&emsp;&emsp;thre...
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">
-            
-                <span>面向对象-OOP</span>
-        </a>
-        <div class="abstract-content">
-            面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：
-
-抽象：类是抽象的，对象是具体的，定义类的过程就是一个抽象过程，  需要最
-数据抽象(发现静态特征（属性）)和行为抽象（发现动态特征（方法））
-
-封装: 把数据和操作数据的方法绑定到一起形成对象，这是一个隐藏实现细节暴露 简单的调用接口的过程。
-
-继承：从已有的类创建新类的过程，提供继承信息的称为父类（基类/超类）得到继 承信息的称为子类（派生类）
-
-多态：子类在继承父类的过程中可以重写（override）父类已有的方法 不同的子类可以给出不同放任实现版本，那么在调用该方法时会表现出多态
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
             
                 <span>类和类之间的关系</span>
@@ -619,31 +651,6 @@ Python解释器搜索一个变量会按照LEGB的顺序进行搜索
  但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
 UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
 重要的三种图：...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/笔记/">
-            
-                <span>web安全，celery</span>
-        </a>
-        <div class="abstract-content">
-            生成用户令牌（token） -哈希码 - MD5/SHA1 -UUID - 全局唯一标识符 -JWT - Json web Token - djangorestframework-jwt
-1、防表单重复，每一次请求刷新令牌2、跨站身份网站伪造 - CSRF、XSRF
-##XSS - 跨站脚本攻击 - 消毒用户评论时输入的是 js脚本代码，发送后就会执行，所以要将特殊字符转换 1、清理用户输入，过滤js代码，过滤特殊字符​          [1] &lt;&gt;（尖括号）     [5] ;（分号）​          [2] “（引号）           [6] ()（括号）​  ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -994,125 +1001,9 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -1122,48 +1013,6 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/理解Go位运算符/">理解Go位运算符</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
     
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
@@ -1184,7 +1033,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
         </li>
     
     
@@ -1199,132 +1048,6 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
         </li>
     
     
@@ -1352,13 +1075,204 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href="/2020/04/14/MyBatisPlusLearning/">MyBatisPlus入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href="/2020/04/14/javaQuestions/">Java常见面试题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/理解Go位运算符/">理解Go位运算符</a>
         </li>
     
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
