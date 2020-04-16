@@ -405,6 +405,12 @@ A&amp;B 转换为十进制等于10;A|B 转换为十进制等于15;A^B 转换为�
             </div>
             <!-- tags  -->
             
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Golang">Golang</a>
+    
+</div>
+            
         </div>
     </article>
     
@@ -428,6 +434,12 @@ A&amp;B 转换为十进制等于10;A|B 转换为十进制等于15;A^B 转换为�
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/03</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="MongoDB">MongoDB</a>
+    
+</div>
             
         </div>
     </article>
@@ -454,6 +466,12 @@ A&amp;B 转换为十进制等于10;A|B 转换为十进制等于15;A^B 转换为�
             </div>
             <!-- tags  -->
             
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Redis">Redis</a>
+    
+</div>
+            
         </div>
     </article>
     
@@ -477,6 +495,12 @@ A&amp;B 转换为十进制等于10;A|B 转换为十进制等于15;A^B 转换为�
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/19</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="问题">问题</a>
+    
+</div>
             
         </div>
     </article>
@@ -504,6 +528,12 @@ threading模块中的Timer&emsp;&emsp;thre...
             </div>
             <!-- tags  -->
             
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+    
+</div>
+            
         </div>
     </article>
     
@@ -513,12 +543,30 @@ threading模块中的Timer&emsp;&emsp;thre...
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/redis订阅python代码/">
+        <a class="abstract-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">
             
-                <span>redis订阅python代码</span>
+                <span>装饰器、函数、一条语句实现阶乘</span>
         </a>
         <div class="abstract-content">
-            123456789101112131415161718class Listener(object):    """    监听器，用于监听Redis订阅的data    """    def __init__(self):        # self.r = redis.Redis(host='139.198.4.56', port='6379')        # redis_client为redis连接设置        self.redis_client = redis_client        self.crawl_seeds = self.redis_client.pubsu...
+            filter –&gt;map –&gt;  reduce
+过滤       映射       归约
+过滤      映射     
+12345678a =[12, 95, 88, 45]sum([x**x for x in a if x % 2]) fn = lambda x,y :x**ydef foo():	passfn =foo
+在python中函数式一等对象（一定公民）
+
+函数可以赋值给变量
+函数可以作为函数的参数   —&gt;fillter
+函数可以作为函数的返回值 —&gt;装饰器
+
+函数参数:
+
+位置参数
+
+可变参数 -tuple
+
+关键字参数 - dict
+
+命名关键...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -526,6 +574,12 @@ threading模块中的Timer&emsp;&emsp;thre...
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+    
+</div>
             
         </div>
     </article>
@@ -551,35 +605,11 @@ threading模块中的Timer&emsp;&emsp;thre...
             </div>
             <!-- tags  -->
             
-        </div>
-    </article>
+            <div class="abstract-tags">
     
+        <a class="post-tag" href="javascript:void(0);" data-tags="布隆过滤器">布隆过滤器</a>
     
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
-            
-                <span>类和类之间的关系</span>
-        </a>
-        <div class="abstract-content">
-            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
-Python解释器搜索一个变量会按照LEGB的顺序进行搜索
- LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
-       局部     嵌套       全局      内置
- 在函数中定义的变量正常情况下属于局部作用域
- 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
-UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
-重要的三种图：...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
+</div>
             
         </div>
     </article>
@@ -590,22 +620,15 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">
+        <a class="abstract-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">
             
-                <span>面向对象-OOP</span>
+                <span>哈希算法-加密-编码</span>
         </a>
         <div class="abstract-content">
-            面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：
-
-抽象：类是抽象的，对象是具体的，定义类的过程就是一个抽象过程，  需要最
-数据抽象(发现静态特征（属性）)和行为抽象（发现动态特征（方法））
-
-封装: 把数据和操作数据的方法绑定到一起形成对象，这是一个隐藏实现细节暴露 简单的调用接口的过程。
-
-继承：从已有的类创建新类的过程，提供继承信息的称为父类（基类/超类）得到继 承信息的称为子类（派生类）
-
-多态：子类在继承父类的过程中可以重写（override）父类已有的方法 不同的子类可以给出不同放任实现版本，那么在调用该方法时会表现出多态
-...
+            哈希算法 - 加密 - 编码哈希算法 - 哈希摘要 - 数字签名 - 防篡改/保护敏感信息哈希算法是一个单向运算的函数（单向哈希函数）通过哈希算法可以将对象计算出哈希摘要但是哈希摘要无法还原成原来的对
+Martin flower -代码有很多味道重复是最坏的一种重构(refactor)
+策略模式加密解密 - 明文 —- 加密 —–&gt; 密文 —- 解密 —–&gt; 明文对称加密 - 加密和解密使用同一个密钥 - AES非对称加密 - 加密和解密使用不同的密钥（公钥和私钥）- RSApip install pycrypto
+编码和解码 - 将内存中的二进制数据处理成其他的格式 - B...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -613,6 +636,12 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="hash">hash</a>
+    
+</div>
             
         </div>
     </article>
@@ -623,14 +652,17 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/笔记/">
+        <a class="abstract-title" href="/2019/02/28/python技巧/">
             
-                <span>web安全，celery</span>
+                <span>python的技巧和方法</span>
         </a>
         <div class="abstract-content">
-            生成用户令牌（token） -哈希码 - MD5/SHA1 -UUID - 全局唯一标识符 -JWT - Json web Token - djangorestframework-jwt
-1、防表单重复，每一次请求刷新令牌2、跨站身份网站伪造 - CSRF、XSRF
-##XSS - 跨站脚本攻击 - 消毒用户评论时输入的是 js脚本代码，发送后就会执行，所以要将特殊字符转换 1、清理用户输入，过滤js代码，过滤特殊字符​          [1] &lt;&gt;（尖括号）     [5] ;（分号）​          [2] “（引号）           [6] ()（括号）​  ...
+            1. 路径操作比起os模块的path方法，python3标准库的pathlib模块的Path处理起路径更加的容易。
+l例如：获取当前文件路径。os版：12print(os.path.dirname(__file__))print(os.getcwd())
+pathlib版：1print(pathlib.Path.cwd())
+看着好像没啥区别，然后看下面这个。
+获取上两级文件目录os版：1print(os.path.dirname(os.path.dirname(os.getcwd())))
+pathlib版:1print(pathlib.Path.cwd().parent.parent...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -638,6 +670,41 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/redis订阅python代码/">
+            
+                <span>redis订阅python代码</span>
+        </a>
+        <div class="abstract-content">
+            123456789101112131415161718class Listener(object):    """    监听器，用于监听Redis订阅的data    """    def __init__(self):        # self.r = redis.Redis(host='139.198.4.56', port='6379')        # redis_client为redis连接设置        self.redis_client = redis_client        self.crawl_seeds = self.redis_client.pubsu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Redis">Redis</a>
+    
+</div>
             
         </div>
     </article>
@@ -904,6 +971,66 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 20
@@ -916,230 +1043,6 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/06/03/MongoDB删除重复数据和唯一索引/">MongoDB删除重复数据和唯一索引</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
@@ -1173,6 +1076,86 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
             <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/理解Go位运算符/">理解Go位运算符</a>
         </li>
     
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/03</span><a class="archive-post-title" href="/2019/06/03/MongoDB删除重复数据和唯一索引/">MongoDB删除重复数据和唯一索引</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/Redis_Sentinel/">Redis Sentinel哨兵</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href="/2019/04/19/request_cookie/">request_cookie</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href="/2019/03/01/python每日定时/">python定时运行代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">装饰器、函数、一条语句实现阶乘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/bloomfilter/">boolmfilter</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/哈希算法 - 加密 - 编码/">哈希算法-加密-编码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/python技巧/">python的技巧和方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/redis订阅python代码/">redis订阅python代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/数据库优化/">数据库优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/Docker/">Docker</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/多并发编程-多线程/">多并发编程-多线程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+        </li>
+    
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
@@ -1181,6 +1164,28 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
         <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
+    
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="布隆过滤器"><span class="iconfont-archer">&#xe606;</span>布隆过滤器</span>
+    
+        <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
+    
+        <span class="sidebar-tag-name" data-tags="hash"><span class="iconfont-archer">&#xe606;</span>hash</span>
+    
+        <span class="sidebar-tag-name" data-tags="MySQL"><span class="iconfont-archer">&#xe606;</span>MySQL</span>
+    
+        <span class="sidebar-tag-name" data-tags="Golang"><span class="iconfont-archer">&#xe606;</span>Golang</span>
+    
+        <span class="sidebar-tag-name" data-tags="web安全"><span class="iconfont-archer">&#xe606;</span>web安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="OOP"><span class="iconfont-archer">&#xe606;</span>OOP</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
