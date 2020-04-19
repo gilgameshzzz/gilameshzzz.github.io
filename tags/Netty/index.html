@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>理解Go位运算符 · Amadeus&#39;s Studio</title>
+    <title>Amadeus&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">Amadeus&#39;s Studio.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">理解Go位运算符</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">Amadeus's Studio.</a>
 </header>
@@ -231,76 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/1230.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            理解Go位运算符
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Golang">Golang</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="位移">位移</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">258</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/08</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -401,102 +338,48 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>假定A = 14, B = 11,转换为二进制：A = 1110， B = 1011。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">A</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">B</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">A&amp;B</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">A\</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td>1</td>
-</tr>
-<tr>
-<td style="text-align:center">A^B</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-</tbody>
-</table>
-<p>A&amp;B 转换为十进制等于10;<br>A|B 转换为十进制等于15;<br>A^B 转换为十进制等于5;<br>&amp; 是求与，两个数都为1才为1，其余情况为0；<br>| 是求或，两个数都为0才为0，其余情况为1；<br>^ 是求异，两个数相同时为0，不同时为1；<br>还有 &lt;&lt; 左移运算，将数字的二进制左移n位，或是将数字的十进制乘以2的n次方，由”&lt;&lt;”右边的数指定移动的位数，高位丢弃，低位补0；</p>
-<p>N * 2 等同于  N &lt;&lt; ㏒₂2  =   N  &lt;&lt;  1</p>
-<p>“&gt;&gt;” 右移运算，将数字的二进制右移n位，或是将数字的十进制除以2的n次方，由”&gt;&gt;”右边的数指定移动的位数；</p>
-<p>N / 2 等同于  N &gt;&gt; ㏒₂2  =   N  &gt;&gt;  1</p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="http://gilgameshzzz.github.io">Amadeus</a>
-            </p><p>原文链接：<a href="http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/">http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/</a>
-            </p><p>发表日期：<a href="http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/">July 8th 2019, 12:00:00 am</a>
-            </p><p>更新日期：<a href="http://gilgameshzzz.github.io/2019/07/08/理解Go位运算符/">April 19th 2020, 11:06:33 pm</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/15/Netty/">
+            
+                <span>初识Netty</span>
+        </a>
+        <div class="abstract-content">
+            I/O 模型基本说明1、I/O 模型简单的理解：就是用什么样的通道进行数据的发送和接收，很大程度上决定了程序通信的性能
+2、Java共支持3种网络编程模型/IO模式：BIO、NIO、AIO
+BIO3、Java BIO ： 同步并阻塞(传统阻塞型)，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销 
+
+BIO流程：
+1)服务器端启动一个ServerSocket
+2)客户端启动Socket对服务器进行通信，默认情况下服务器端需要对每个客户 建立一个线程与之通讯
+3)客户端发出请求后, 先咨询服务器是否有线...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Netty">Netty</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2020/04/14/javaQuestions/" title="Java常见面试题">
-                    <div class="nextTitle">Java常见面试题</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/06/03/MongoDB删除重复数据和唯一索引/" title="MongoDB删除重复数据和唯一索引">
-                    <div class="prevTitle">MongoDB删除重复数据和唯一索引</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -576,24 +459,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1104,8 +969,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
