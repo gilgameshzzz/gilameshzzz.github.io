@@ -359,6 +359,38 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/多并发编程-多线程/">
+            
+                <span>多并发编程-多线程</span>
+        </a>
+        <div class="abstract-content">
+            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
+1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="并发">并发</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
             
                 <span>类和类之间的关系</span>
@@ -872,9 +904,24 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 22
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -887,6 +934,11 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/java并发AQS/">Java并发-AQS-ReentrantLock</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1049,6 +1101,8 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
         <span class="sidebar-tag-name" data-tags="Netty"><span class="iconfont-archer">&#xe606;</span>Netty</span>
     
         <span class="sidebar-tag-name" data-tags="位移"><span class="iconfont-archer">&#xe606;</span>位移</span>
+    
+        <span class="sidebar-tag-name" data-tags="并发"><span class="iconfont-archer">&#xe606;</span>并发</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

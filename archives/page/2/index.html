@@ -346,6 +346,38 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/01/python每日定时/">
+            
+                <span>python定时运行代码</span>
+        </a>
+        <div class="abstract-content">
+            循环 sleep&emsp;&emsp;这种方式最简单，只要在循环里加入需要执行的代码，然后sleep后在执行。123456789import time# 每n秒执行一次def timer(n):    while True:        function(*args,**kargs)        time.sleep(n)# 5stimer(5)
+&emsp;&emsp;这个方法的缺点：只能执行固定间隔时间的任务，如果有定时任务就无法完成。并且sleep是一个阻塞函数，也就是说sleep这一段时间，啥都不能做。
+
+threading模块中的Timer&emsp;&emsp;thre...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/28/day02-装饰器、函数、一条语句实现阶乘/">
             
                 <span>装饰器、函数、一条语句实现阶乘</span>
@@ -644,36 +676,6 @@ docker images
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="Docker">Docker</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/多并发编程-多线程/">
-            
-                <span>多并发编程-多线程</span>
-        </a>
-        <div class="abstract-content">
-            多并发编程-多线程守护线程/守护进程 - daemon如果主线程结束了守护线程也不再保留即使守护线程还在执行（没有结束）
-1234567891011121314151617import threadingimport timedef show_message(content):    while True:        print(content, end='')def main():    threading.Thread(        target=show_message, args=('Ping', ), daemon=True    ).start()    threadi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
     
 </div>
             
@@ -1032,9 +1034,24 @@ docker images
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 22
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1047,6 +1064,11 @@ docker images
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/java并发AQS/">Java并发-AQS-ReentrantLock</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1209,6 +1231,8 @@ docker images
         <span class="sidebar-tag-name" data-tags="Netty"><span class="iconfont-archer">&#xe606;</span>Netty</span>
     
         <span class="sidebar-tag-name" data-tags="位移"><span class="iconfont-archer">&#xe606;</span>位移</span>
+    
+        <span class="sidebar-tag-name" data-tags="并发"><span class="iconfont-archer">&#xe606;</span>并发</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
