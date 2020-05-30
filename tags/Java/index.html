@@ -346,166 +346,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2020/04/24/java集合/">
+        <a class="abstract-title" href="/2020/05/30/java的lambda表达式/">
             
-                <span>Java集合，泛型，spring注解、事务的一些问题</span>
+                <span>java lambda表达式</span>
         </a>
         <div class="abstract-content">
-            java 集合类之间的继承关系Java的集合类主要由两个接口派生而出：Collection和Map,Collection和Map是Java集合框架的根接口。代表了两种不同的数据结构：集合和映射表。
-
-图中，ArrayList,HashSet,LinkedList,TreeSet是我们经常会有用到的已实现的集合类。
-Map实现类用于保存具有映射关系的数据。Map保存的每项数据都是key-value对，也就是由key和value两个值组成。Map里的key是不可重复的，key用户标识集合里的每项数据。
-
-迭代器的作用由于Java中数据容器众多，而对数据容器的操作在很多时候都具有极大的共性，于...
+            Lambda表达式：引入函数式编程的风格，不是所有的引用数据类型都可以使用lambda表达式只有SAM接口（函数式接口）类型的形参，变量才可以赋值为Lambda表达式。函数式接口：SAM(Single Abstract Method)表示该接口只有一个抽象方法的接口。当然这个接口可以有默认方法和静态方法等成员。如Runable、Comparable, Iterable、reflect、FileFilter
+JDK1.8建议，这样的接口加一个注解标记@FunctionalInterface
+一、消费型接口 ， 特点：有参无返回值1、最基本的代表： Consumer :  void acce...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/24</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/30</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
     
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/04/22/java并发AQS/">
-            
-                <span>Java并发-AQS-ReentrantLock</span>
-        </a>
-        <div class="abstract-content">
-            前言在synchronized未优化之前，我们在编码中使用最多的同步工具类应该是ReentrantLock类，ReentrantLock拥有优化后synchronized关键字的性能，又提供了更多的灵活性。相比synchronized，他在功能上更加强大，具有等待可中断，公平锁以及绑定多个条件等synchronized不具备的功能。
-ReentrantLock 与AQS(AbstractQueuedSynchronizer)的关系在使用ReentrantLock 类时，第一步实例化 new ReentrantLock(),他的实例化源码
-1234567public ReentrantLo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="并发">并发</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/04/15/Netty/">
-            
-                <span>初识Netty</span>
-        </a>
-        <div class="abstract-content">
-            I/O 模型基本说明1、I/O 模型简单的理解：就是用什么样的通道进行数据的发送和接收，很大程度上决定了程序通信的性能
-2、Java共支持3种网络编程模型/IO模式：BIO、NIO、AIO
-BIO3、Java BIO ： 同步并阻塞(传统阻塞型)，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销 
-
-BIO流程：
-1)服务器端启动一个ServerSocket
-2)客户端启动Socket对服务器进行通信，默认情况下服务器端需要对每个客户 建立一个线程与之通讯
-3)客户端发出请求后, 先咨询服务器是否有线...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Netty">Netty</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/04/14/MyBatisPlusLearning/">
-            
-                <span>MyBatisPlus入门</span>
-        </a>
-        <div class="abstract-content">
-            快速入门使用第三方组件：1、导入对应的依赖2、研究依赖如何配置3、代码如何编写4、提高扩展技术能力1步骤
-1、创建数据库，2、创建数据表，3、编写项目，初始化项目，4、导入依赖,注意不要同时导入Mybatis和MyBatis-plus引入 spring-boot-starter、spring-boot-starter-test、mybatis-plus-boot-starter、lombok、h2 依赖：1234567891011121314151617&lt;!-- lombok --&gt;&lt;dependency&gt;  &lt;groupId&gt;org.projectl...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="MyBatisPlus">MyBatisPlus</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/04/14/javaQuestions/">
-            
-                <span>Java常见面试题</span>
-        </a>
-        <div class="abstract-content">
-            ================================
-设计模式分为：创建型模式（单例、工厂、抽象工厂）、结构型模式（代理、组合、装饰）、行为型模式（策略、模板方法、迭代器）================================问：请解释一下对象的创建过程?(半初始化)
-答：1、申请内存，给对象里的成员变量设为默认值(半初始化)，2、调用对象的构造方法，再给对象里的成员变量设初始值，3、将变量名与对象进行关联
-
-===============================
-DCL（Double Check Lock）单例
-12345678910111213class...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="lambda">lambda</a>
     
 </div>
             
@@ -884,9 +745,26 @@ DCL（Double Check Lock）单例
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 24
+        Total : 25
         </div>
         <!-- search  -->
         
@@ -899,6 +777,11 @@ DCL（Double Check Lock）单例
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/30</span><a class="archive-post-title" href="/2020/05/30/java的lambda表达式/">java lambda表达式</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1016,12 +899,12 @@ DCL（Double Check Lock）单例
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
         </li>
     
     
@@ -1034,23 +917,160 @@ DCL（Double Check Lock）单例
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
-    
         <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
     
-        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
+        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="Netty"><span class="iconfont-archer">&#xe606;</span>Netty</span>
     
-        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
     
         <span class="sidebar-tag-name" data-tags="布隆过滤器"><span class="iconfont-archer">&#xe606;</span>布隆过滤器</span>
+    
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="并发"><span class="iconfont-archer">&#xe606;</span>并发</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="lambda"><span class="iconfont-archer">&#xe606;</span>lambda</span>
+    
+        <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
+    
+        <span class="sidebar-tag-name" data-tags="hash"><span class="iconfont-archer">&#xe606;</span>hash</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="二叉树"><span class="iconfont-archer">&#xe606;</span>二叉树</span>
+    
+        <span class="sidebar-tag-name" data-tags="MySQL"><span class="iconfont-archer">&#xe606;</span>MySQL</span>
+    
+        <span class="sidebar-tag-name" data-tags="Golang"><span class="iconfont-archer">&#xe606;</span>Golang</span>
+    
+        <span class="sidebar-tag-name" data-tags="位移"><span class="iconfont-archer">&#xe606;</span>位移</span>
+    
+        <span class="sidebar-tag-name" data-tags="web安全"><span class="iconfont-archer">&#xe606;</span>web安全</span>
+    
+        <span class="sidebar-tag-name" data-tags="OOP"><span class="iconfont-archer">&#xe606;</span>OOP</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Amadeus"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+
+
+�拷贝/">深拷贝和浅拷贝</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/面向对象 -OOP(Object Oriendted Programming)面向对象的四大支柱：/">面向对象-OOP</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="Netty"><span class="iconfont-archer">&#xe606;</span>Netty</span>
+    
+        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
+    
+        <span class="sidebar-tag-name" data-tags="布隆过滤器"><span class="iconfont-archer">&#xe606;</span>布隆过滤器</span>
+    
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="并发"><span class="iconfont-archer">&#xe606;</span>并发</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="lambda"><span class="iconfont-archer">&#xe606;</span>lambda</span>
     
         <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
     

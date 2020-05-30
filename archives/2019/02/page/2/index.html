@@ -346,19 +346,14 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
+        <a class="abstract-title" href="/2019/02/28/笔记/">
             
-                <span>类和类之间的关系</span>
+                <span>web安全，celery</span>
         </a>
         <div class="abstract-content">
-            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
-Python解释器搜索一个变量会按照LEGB的顺序进行搜索
- LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
-       局部     嵌套       全局      内置
- 在函数中定义的变量正常情况下属于局部作用域
- 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
-UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
-重要的三种图：...
+            生成用户令牌（token） -哈希码 - MD5/SHA1 -UUID - 全局唯一标识符 -JWT - Json web Token - djangorestframework-jwt
+1、防表单重复，每一次请求刷新令牌2、跨站身份网站伪造 - CSRF、XSRF
+##XSS - 跨站脚本攻击 - 消毒用户评论时输入的是 js脚本代码，发送后就会执行，所以要将特殊字符转换 1、清理用户输入，过滤js代码，过滤特殊字符​          [1] &lt;&gt;（尖括号）     [5] ;（分号）​          [2] “（引号）           [6] ()（括号）​  ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -369,7 +364,7 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="web安全">web安全</a>
     
 </div>
             
@@ -791,9 +786,26 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 24
+        Total : 25
         </div>
         <!-- search  -->
         
@@ -806,6 +818,11 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/30</span><a class="archive-post-title" href="/2020/05/30/java的lambda表达式/">java lambda表达式</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -923,12 +940,12 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
         </li>
     
     
@@ -941,23 +958,27 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
-    
         <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
     
-        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
+        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="Netty"><span class="iconfont-archer">&#xe606;</span>Netty</span>
     
-        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
     
         <span class="sidebar-tag-name" data-tags="布隆过滤器"><span class="iconfont-archer">&#xe606;</span>布隆过滤器</span>
+    
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="并发"><span class="iconfont-archer">&#xe606;</span>并发</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="lambda"><span class="iconfont-archer">&#xe606;</span>lambda</span>
     
         <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
     

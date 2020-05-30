@@ -359,6 +359,35 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/数据库优化/">
+            
+                <span>数据库优化</span>
+        </a>
+        <div class="abstract-content">
+            1.SQL语句优化1）应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。2）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：select id from t where num is null可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：select id from t where num=03）很多时候用 exists 代替 in 是一个好的选择4）用Where子句替换HAVING 子句，因为HAVING 只会在检索出所有记录之后才对结果集进行过...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="MySQL">MySQL</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/28/深拷贝和浅拷贝/">
             
                 <span>深拷贝和浅拷贝</span>
@@ -370,6 +399,42 @@ height:50vh;
 浅拷贝，在内存中只额外创建第一层数据，如下图123import copyn1 = &#123;"k1": "wu", "k2": 123, "k3": ["alex", 456]&#125;n3 = copy.copy(n1)
 
 深拷贝，在内存中将所有的数据重新创建一份（递归拷贝...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
+            
+                <span>类和类之间的关系</span>
+        </a>
+        <div class="abstract-content">
+            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
+Python解释器搜索一个变量会按照LEGB的顺序进行搜索
+ LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
+       局部     嵌套       全局      内置
+ 在函数中定义的变量正常情况下属于局部作用域
+ 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
+UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
+重要的三种图：...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -412,42 +477,6 @@ height:50vh;
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="web安全">web安全</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/28/类和类之间的关系/">
-            
-                <span>类和类之间的关系</span>
-        </a>
-        <div class="abstract-content">
-            类和类之间的关系-is-a 关系：（继承）-has-a 关系（关联/聚合/合成）-use-a 关系（依赖）
-Python解释器搜索一个变量会按照LEGB的顺序进行搜索
- LEGB - Local -&gt;Embedded -&gt;Global -&gt; BUilt-in
-       局部     嵌套       全局      内置
- 在函数中定义的变量正常情况下属于局部作用域
- 但是可以通过nolocal或global关键字将其放到嵌套或全局作用域
-UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - 便于沟通交流
-重要的三种图：...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="python">python</a>
     
 </div>
             
@@ -961,9 +990,26 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 24
+        Total : 25
         </div>
         <!-- search  -->
         
@@ -976,6 +1022,11 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/30</span><a class="archive-post-title" href="/2020/05/30/java的lambda表达式/">java lambda表达式</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1093,12 +1144,12 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/类和类之间的关系/">类和类之间的关系</a>
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href="/2019/02/28/笔记/">web安全，celery</a>
         </li>
     
     
@@ -1111,23 +1162,27 @@ UML -Unified Modeling Language - 统一建模语言标准化的图形符号 - �
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
-    
         <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
     
-        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
+        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="Netty"><span class="iconfont-archer">&#xe606;</span>Netty</span>
     
-        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+        <span class="sidebar-tag-name" data-tags="MyBatisPlus"><span class="iconfont-archer">&#xe606;</span>MyBatisPlus</span>
     
         <span class="sidebar-tag-name" data-tags="布隆过滤器"><span class="iconfont-archer">&#xe606;</span>布隆过滤器</span>
+    
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="并发"><span class="iconfont-archer">&#xe606;</span>并发</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="lambda"><span class="iconfont-archer">&#xe606;</span>lambda</span>
     
         <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
     
